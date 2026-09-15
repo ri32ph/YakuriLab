@@ -1,0 +1,30 @@
+/* Scoped integration rules: these styles only apply inside the lab site. */
+.lab-site .lab-navigation{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin:16px auto;padding:14px;background:#fff;border:1px solid #dbe2ea;border-radius:12px}
+.lab-site .lab-navigation a,.lab-site .lab-back{color:#315b9a;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:8px;display:inline-block}
+.lab-site .skip-link{position:absolute;left:10px;top:-100px;background:white;padding:12px;z-index:10}
+.lab-site .skip-link:focus{top:10px}
+.lab-site :focus-visible{outline:3px solid #315b9a;outline-offset:4px}
+.lab-site .learning-heading{font-size:18px;margin:0 0 12px;color:#172a4d}
+.lab-site .model-note{font-size:12px;line-height:1.7;padding:12px;background:#eef3f8;border-radius:10px;color:#475467}
+.lab-page .sim{grid-template-columns:minmax(0,36fr) minmax(0,64fr)}
+.lab-page .sim>*{min-width:0}
+.lab-page .row,.lab-page .head,.lab-page .panel-head{flex-wrap:wrap}
+.lab-page select{max-width:100%}
+.lab-page button{min-height:44px}
+.lab-page .note{font-size:12px}
+@media(max-width:800px){
+ .lab-page .sim{grid-template-columns:minmax(0,1fr)}
+ .lab-page .observe{grid-template-rows:auto auto}
+ .lab-page .visual{height:auto;grid-template-columns:minmax(0,1fr)}
+ .lab-page .visual>svg{height:auto;min-height:190px;aspect-ratio:2/1}
+ .lab-page .metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;align-content:start}
+ .lab-page .metric{padding:8px 6px;min-width:0}
+ .lab-page .metric strong{font-size:16px;overflow-wrap:anywhere}
+ .lab-page .graph,.lab-page .graphbox{height:auto;min-height:160px}
+ .lab-page .graph>svg,.lab-page .graphbox>svg{height:auto;aspect-ratio:820/310}
+ .lab-page .top{flex-wrap:wrap}
+ .lab-site .lab-navigation{align-items:stretch;flex-direction:column}
+ .lab-site .lab-navigation a{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.lab-site *{scroll-behavior:auto!important;transition:none!important}}
+.lab-page .follow-experiment{margin-top:14px}
