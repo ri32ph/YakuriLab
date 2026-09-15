@@ -117,12 +117,20 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_13_membrane_ions.html"
   },
   {
-    "id": 11,
-    "title": "活動電位と神経の伝導",
-    "href": "pharmacology_lab_11_action_potential.html",
-    "label": "14・15",
+    "id": "depolarization",
+    "label": "14",
     "numbers": [
-      14,
+      14
+    ],
+    "title": "Na⁺流入と脱分極",
+    "href": "pharmacology_lab_14_depolarization.html"
+  },
+  {
+    "id": 11,
+    "title": "活動電位と伝導",
+    "href": "pharmacology_lab_11_action_potential.html",
+    "label": "15",
+    "numbers": [
       15
     ]
   },
@@ -230,5 +238,15 @@ window.LAB_CATALOG = [
       26,
       27
     ]
+  },
+  {
+    "id": "blood-pressure",
+    "label": "28",
+    "numbers": [
+      28
+    ],
+    "title": "血圧を決めるもの",
+    "href": "pharmacology_lab_28_blood_pressure.html",
+    "key": "blood-pressure"
   }
 ];

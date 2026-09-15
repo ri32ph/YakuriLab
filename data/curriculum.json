@@ -217,17 +217,15 @@
       "number": 14,
       "title": "Na⁺流入と脱分極",
       "question": "刺激すると膜に何が起こる？",
-      "status": "shared",
-      "labId": 11,
-      "note": "既存の「活動電位と神経の伝導」で一緒に学べます。"
+      "status": "ready",
+      "labId": "depolarization"
     },
     {
       "number": 15,
       "title": "活動電位と伝導",
       "question": "なぜその変化が隣へ進む？",
-      "status": "shared",
-      "labId": 11,
-      "note": "既存の「活動電位と神経の伝導」で一緒に学べます。"
+      "status": "ready",
+      "labId": 11
     },
     {
       "number": 16,
@@ -319,7 +317,8 @@
       "number": 28,
       "title": "血圧を決めるもの",
       "question": "心拍数・一回拍出量・血管抵抗を変える。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "blood-pressure"
     },
     {
       "number": 29,

@@ -17,8 +17,8 @@
 | 11 | 薬力学的相互作用 | 利用可 | [薬力学的相互作用](pharmacology_lab_10_pharmacodynamic_interaction.html) |
 | 12 | 用量と反応 | 利用可 | [用量と反応](pharmacology_lab_12_dose_response.html) |
 | 13 | 細胞膜とNa⁺・K⁺ | 利用可 | [細胞膜とNa⁺・K⁺](pharmacology_lab_13_membrane_ions.html) |
-| 14 | Na⁺流入と脱分極 | 共通教材・拡充予定 | [活動電位と神経の伝導](pharmacology_lab_11_action_potential.html) |
-| 15 | 活動電位と伝導 | 共通教材・拡充予定 | [活動電位と神経の伝導](pharmacology_lab_11_action_potential.html) |
+| 14 | Na⁺流入と脱分極 | 利用可 | [Na⁺流入と脱分極](pharmacology_lab_14_depolarization.html) |
+| 15 | 活動電位と伝導 | 利用可 | [活動電位と伝導](pharmacology_lab_11_action_potential.html) |
 | 16 | シナプス伝達 | 利用可 | [シナプスでの伝達](pharmacology_lab_12_synapse.html) |
 | 17 | 作動薬（アゴニスト） | 利用可 | [作動薬（アゴニスト）](pharmacology_lab_13_agonist.html) |
 | 18 | 拮抗薬（アンタゴニスト） | 利用可 | [拮抗薬（アンタゴニスト）](pharmacology_lab_14_antagonist.html) |
@@ -31,7 +31,7 @@
 | 25 | β3受容体 ― 膀胱・脂肪組織 | 利用可 | [β3受容体 ― 膀胱・脂肪組織](pharmacology_lab_25_beta3.html) |
 | 26 | M2受容体 ― 心臓 | 共通教材・拡充予定 | [副交感神経とムスカリン受容体](pharmacology_lab_18_parasympathetic.html) |
 | 27 | M3受容体 ― 腺・平滑筋 | 共通教材・拡充予定 | [副交感神経とムスカリン受容体](pharmacology_lab_18_parasympathetic.html) |
-| 28 | 血圧を決めるもの | 追加予定 | — |
+| 28 | 血圧を決めるもの | 利用可 | [血圧を決めるもの](pharmacology_lab_28_blood_pressure.html) |
 | 29 | RAAS | 追加予定 | — |
 | 30 | 降圧薬 | 追加予定 | — |
 | 31 | 心不全 | 追加予定 | — |
