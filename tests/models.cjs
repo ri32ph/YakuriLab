@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..');
  const browser=await chromium.launch({channel:'chrome',headless:true});
  async function lab(n){
   const p=await browser.newPage();await p.clock.install({time:new Date('2026-01-01T00:00:00Z')});await p.clock.pauseAt(new Date('2026-01-01T00:00:00Z'));
-  const file=fs.readdirSync(root).find(f=>f.startsWith('pharmacology_lab_'+String(n).padStart(2,'0')));await p.goto('file://'+path.join(root,file));return p;
+  const catalog=JSON.parse(fs.readFileSync(path.join(root,'assets/js/catalog.js'),'utf8').split('=')[1].trim().replace(/;$/, ''));const file=catalog.find(x=>x.id===n).href;await p.goto('file://'+path.join(root,file));return p;
  }
  async function set(p,id,v){await p.locator(id).evaluate((el,v)=>{el.value=v;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}));},String(v));}
  async function points(p,id){return p.locator(id).evaluate(el=>(el.getAttribute('points')||'').trim().split(/\s+/).filter(Boolean).map(q=>q.split(',').map(Number)));}
@@ -41,6 +41,6 @@ const root=path.resolve(__dirname,'..');
   const normal=await run(false),changed=await run(true);
   assert(n===7?changed[0]>normal[0]:changed[0]<normal[0]);assert(n===7?changed[1]<normal[1]:changed[1]>normal[1]);console.log('PASS CYP direction',n);
  }
- {const p=await lab(12);await p.locator('#move').click();const before=+(await p.locator('#resp').textContent()).replace('%','');await set(p,'#antag',100);assert(+(await p.locator('#resp').textContent()).replace('%','')<before);await set(p,'#agonist',0);assert.equal(await p.locator('#on').textContent(),'0 / 8');assert.equal(await p.locator('#resp').textContent(),'0%');await p.close();console.log('PASS antagonist binds without activation');}
+ {const p=await lab(14);await p.locator('#move').click();const before=+(await p.locator('#resp').textContent()).replace('%','');await set(p,'#antag',100);assert(+(await p.locator('#resp').textContent()).replace('%','')<before);await set(p,'#agonist',0);assert.equal(await p.locator('#on').textContent(),'0 / 8');assert.equal(await p.locator('#resp').textContent(),'0%');await p.close();console.log('PASS antagonist binds without activation');}
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
