@@ -323,26 +323,30 @@
     {
       "number": 29,
       "title": "RAAS",
-      "question": "循環血液量とホルモンのつながりを追う。",
-      "status": "planned"
+      "question": "循環血液量が減ったら、腎臓はどう反応する？",
+      "status": "ready",
+      "labId": "raas"
     },
     {
       "number": 30,
       "title": "降圧薬",
       "question": "血圧を決めるしくみの「どこを変える薬か」で比較する。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "antihypertensives"
     },
     {
       "number": 31,
       "title": "心不全",
       "question": "心機能・神経・ホルモン・体液のつながりを学ぶ。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "heart-failure"
     },
     {
       "number": 32,
       "title": "心不全治療薬",
       "question": "薬が悪循環のどこに作用するかを考える。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "heart-failure-drugs"
     },
     {
       "number": 33,

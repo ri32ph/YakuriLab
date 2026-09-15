@@ -32,10 +32,10 @@
 | 26 | M2受容体 ― 心臓 | 共通教材・拡充予定 | [副交感神経とムスカリン受容体](pharmacology_lab_18_parasympathetic.html) |
 | 27 | M3受容体 ― 腺・平滑筋 | 共通教材・拡充予定 | [副交感神経とムスカリン受容体](pharmacology_lab_18_parasympathetic.html) |
 | 28 | 血圧を決めるもの | 利用可 | [血圧を決めるもの](pharmacology_lab_28_blood_pressure.html) |
-| 29 | RAAS | 追加予定 | — |
-| 30 | 降圧薬 | 追加予定 | — |
-| 31 | 心不全 | 追加予定 | — |
-| 32 | 心不全治療薬 | 追加予定 | — |
+| 29 | RAAS | 利用可 | [RAAS](pharmacology_lab_29_raas.html) |
+| 30 | 降圧薬 | 利用可 | [降圧薬](pharmacology_lab_30_antihypertensives.html) |
+| 31 | 心不全 | 利用可 | [心不全](pharmacology_lab_31_heart_failure.html) |
+| 32 | 心不全治療薬 | 利用可 | [心不全治療薬](pharmacology_lab_32_heart_failure_drugs.html) |
 | 33 | 虚血性心疾患 | 追加予定 | — |
 | 34 | 不整脈 | 追加予定 | — |
 | 35 | ネフロンとNa・水 | 追加予定 | — |

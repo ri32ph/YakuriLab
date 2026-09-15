@@ -248,5 +248,45 @@ window.LAB_CATALOG = [
     "title": "血圧を決めるもの",
     "href": "pharmacology_lab_28_blood_pressure.html",
     "key": "blood-pressure"
+  },
+  {
+    "id": "raas",
+    "label": "29",
+    "numbers": [
+      29
+    ],
+    "title": "RAAS",
+    "href": "pharmacology_lab_29_raas.html",
+    "key": "raas"
+  },
+  {
+    "id": "antihypertensives",
+    "label": "30",
+    "numbers": [
+      30
+    ],
+    "title": "降圧薬",
+    "href": "pharmacology_lab_30_antihypertensives.html",
+    "key": "antihypertensives"
+  },
+  {
+    "id": "heart-failure",
+    "label": "31",
+    "numbers": [
+      31
+    ],
+    "title": "心不全",
+    "href": "pharmacology_lab_31_heart_failure.html",
+    "key": "heart-failure"
+  },
+  {
+    "id": "heart-failure-drugs",
+    "label": "32",
+    "numbers": [
+      32
+    ],
+    "title": "心不全治療薬",
+    "href": "pharmacology_lab_32_heart_failure_drugs.html",
+    "key": "heart-failure-drugs"
   }
 ];
