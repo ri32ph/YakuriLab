@@ -33,6 +33,7 @@ for ch in c['chapters'][7:]:
  if pending:s+='<ul>'+''.join(planned(e) for e in pending)+'</ul>'
  s+='</details>'
 s+='</section></main><footer class="container"><p>薬の名前の前に、身体の変化を理解する。</p><a href="#">ページの先頭へ ↑</a></footer></body></html>'
+s=s.replace('27教材を利用できます',f'{len(labs)}教材を利用できます')
 for name in ['index.html','pharmacology_lab_index.html']:(p/name).write_text(s)
 md='# 新目次と既存教材の対応\n\n表示番号は新目次、内部ID・既存URLは固定。共有教材は未実装範囲の完成を意味しません。\n\n| 新番号 | テーマ | 状態 | 既存URL／関連教材 |\n|---|---|---|---|\n'
 for e in c['items']:

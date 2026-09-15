@@ -117,7 +117,7 @@ node tests/autonomic.cjs
 
 ## 全体目次の再編（70テーマ）
 
-現在のトップページはⅠ〜XVの新目次に沿っています。27本の教材を利用可能として案内し、未実装テーマは「予定」として区別しています。
+現在のトップページはⅠ〜XVの新目次に沿っています。30本の教材を利用可能として案内し、未実装テーマは「予定」として区別しています。
 
 - `data/curriculum.json`：章・新しい表示番号・問い・実装状態・既存教材の対応。`ready` は利用可、`shared` は共通教材、`planned` は追加予定。
 - `assets/js/catalog.js`：既存URLと内部IDを維持。`label` が新しい表示番号、`numbers` が対応テーマ番号。シミュレーションの `data-lab` は変更しないでください。
@@ -153,3 +153,51 @@ node tests/autonomic.cjs
 - LAB 15：既存の活動電位ページを伝導専用として表示し、LAB 14との共通表示を解消。既存URLと内部IDは維持しています。
 - LAB 20：受容体への結合、チャネルを通るイオン、酵素反応、トランスポーターによる移動を、標的ごとに異なるアニメーションで表示します。標的のクリックまたは「もう一度動かす」で1回だけ再生し、ループしません。
 - LAB 13は端末の「動きを減らす」設定で初期停止し、画面のボタンから開始できます。
+
+### LAB 29：RAAS
+
+- `pharmacology_lab_29_raas.html`：循環血液量を入口にした8段階の観察。人体、二方向の経路、7項目の相対変化、ON／OFF比較を表示。
+- `assets/js/raas-model.js`：`RAAS_MODEL.state(volume, stage, enabled)`。血液量は0〜100（50が標準）、段階は0〜7。血管反応は段階5、体液保持は段階6から。実時間・臨床値・回復量は計算しません。
+- `assets/js/raas-pathway.js`：`RAAS_PATHWAY.mount(element)`が返す`render(state)`で経路を段階表示。30でも同じモデル・描画を使用できます。`data-target`の`renin`、`angiotensin-i`、`ace`、`angiotensin-ii`、`at1`、`mr`を薬の作用点表示用に定義。薬効モデル自体は未実装です。
+- `assets/js/raas.js`：スライダー、プリセット、タイマー、停止・再開・手動送り、ON／OFFと表示の同期。条件変更時はタイマーを破棄して観察をやり直します。
+- `assets/css/raas.css`：28と同じ`lab-15.css`の36：64レイアウトを使い、800px以下で1カラム。循環の赤系、Na⁺保持の黄系、標準の青灰色を使用。
+- 標準でもRAASの基礎活動はあります。ONは低下に対する追加反応、OFFは反応全体を外す仮想比較です。薬剤投与による完全遮断を意味しません。血液量の多い設定では活動が弱まる方向を定性的に表示します。
+- 28の次リンク、カタログ、目次データ、生成トップページ2本・対応表を更新。30〜32は予定として維持しています。
+
+検証：`node tests/raas.cjs`、`node tests/raas-browser.cjs`（PlaywrightとChromeが必要。`PLAYWRIGHT_PATH`でモジュールを指定可能）。2026-09-16に幅1440・1280・390・320px、ON／OFF、段階再生、リセット、reduced-motion、28からのナビゲーションを確認しました。画面画像は`tests/raas-1440.png`と`tests/raas-390.png`です。公開先への反映は行っていません。
+
+### LAB 30：降圧薬
+
+初期画面は心臓・血管・腎臓・RAASの調節マップです。「薬を選んで重ねる」を開くと、DHP系Ca拮抗薬、ACE阻害薬、ARB、サイアザイド系・類似利尿薬、β遮断薬を選べます。MRAは発展モードに配置しています。比較モードでは同じデータを左右独立に表示します。
+
+- `pharmacology_lab_30_antihypertensives.html`：本体。PCは共通CSSの36：64、800px以下は1カラム。比較・発展・副作用・看護観察は主要部の下に配置。
+- `assets/js/antihypertensive-model.js`：薬効群ごとの`organs`、`targets`、7指標、因果経路、注意点、観察項目。`state(id, compensate)`は表示用状態を返し、用量・臨床血圧・薬効順位は計算しません。
+- `assets/js/circulation-map.js`：29の人体SVGと28の心臓・血管の視覚表現を使った共通描画。`CIRCULATION_MAP.mount(container).render(state)`。IDを共有せず、31・32や複数比較画面でも使える局所セレクター。
+- `assets/js/raas-pathway.js`：29の段階表示を維持し、`mount(container, {mode:'drug'})`を追加。`render(state)`でACE、AT1、β1によるレニン分泌、MRにBLOCKを表示。ARBでもAng IIの生成は残します。AT1は血管・副腎への分岐の前に置いています。
+- `assets/js/antihypertensive.js`：薬選択、比較プリセット、MRA、補正反応、リセット、薬別の注意点・看護観察を同期。
+- `assets/css/antihypertensive.css`：循環マップ・比較・遮断位置の短いアニメーション。reduced-motionではアニメーションを省略。
+- カタログ、目次データ、29→30リンク、共通ナビゲーションを更新。31・32は予定。トップページの教材数は`build-home.py`でカタログから求め、追加時に古い件数が残らないように修正。
+
+#### 方向表示の前提
+
+RAASの矢印は実効的な作用の方向であり、血中レニン・Ang II濃度ではありません。基本表示の→は変化をモデルに加えていない項目です。ACE阻害薬・ARBのCO↓は体液保持が弱まる寄与を示し、後負荷軽減などを含む実際のCO変化を断定しません。利尿薬は初期の体液量作用を表示し、長期のTPR低下は解説します。β遮断薬はβ1作用が中心で、下流の血管・体液量への寄与は経路図と説明で示します。補正反応ONはDHP系の反射性心拍数増加、利尿薬のRAAS活性化を例示します。
+
+検証コマンド：`node tests/antihypertensive.cjs`、`node tests/antihypertensive-browser.cjs`。ブラウザテストはChromeとPlaywrightが必要で、`PLAYWRIGHT_PATH`でモジュールを指定できます。比較は併用ではなく、単剤同士の作用機序比較です。公開サイトへの反映は行っていません。
+
+### LAB 31：心不全
+
+- `pharmacology_lab_31_heart_failure.html`：ポンプ機能と「時間を進める」で、初期→代償期→持続を観察。PCは36：64、800px以下は1カラム。スマートフォンでは人体を大きく表示し、その下に二つの代償経路を配置。
+- `assets/js/heart-failure-model.js`：`HEART_FAILURE_MODEL.state(pump, phase)`。pumpは20〜100の抽象指標でLVEFではありません。phaseは0〜2の説明段階で、実時間・臨床病期・予後を表しません。相対COは相対HR×相対SVで、代償期は初期より循環を補い、持続期は負担が増える一例を示します。
+- `assets/js/heart-failure-map.js`：`HEART_FAILURE_MAP.mount(container).render(state, options)`。30の`CIRCULATION_MAP`から人体を再利用し、肺・下肢のうっ血、拍動、血管内腔、体液量、悪循環の戻り矢印を追加。
+- `assets/js/heart-failure.js`：操作・時間・症状リンク・動きの停止・リセット・RAAS図を同期。条件変更時は初期に戻ります。
+- `assets/css/heart-failure.css`：人体、独立ノード、動くループ、うっ血と灌流の別指標。端末の動きを減らす設定では初期停止し、手動開始・停止ができます。
+- `assets/js/raas-pathway.js`：任意の`triggerLabel`を追加。31では「CO低下など → 有効動脈血液量・腎灌流↓方向」を指定。29・30の既定表示は維持。
+- カタログ・目次、29/30→31のリンク、共通ナビゲーションを更新。32は予定として維持しています。
+
+#### LAB 32への再利用
+
+`state.nodes`と図上の`data-target`には、`heart`、`kidneys`、`sympathetic`、`raas`、`volume`、`vessels`、`congestion`、`load`を定義しています。描画オプションの`emphasis`に同じキーの真偽値を渡すと、それぞれを独立して強調できます。`focus`は症状からの注目先、`motion`は動きの開始・停止です。全DOM参照は描画先内に限定しています。32で薬の作用点を重ねるための構造であり、薬効モデルは31には含めていません。
+
+肺・下肢のうっ血は持続時の例として同時に表示します。低灌流とうっ血は独立した値を持ち、必ず同時に同程度で現れるという意味ではありません。基本モデルは心不全全体を再現せず、HFpEF、前負荷、充満圧などの限界を発展解説に記載しています。
+
+検証：`node tests/heart-failure.cjs`、`node tests/heart-failure-browser.cjs`。ブラウザテストはPlaywright・Chromeを使用し、1440・1280・390・320px、症状からの強調、リセット、reduced-motion、RAASの起点、30→31の移動を確認。公開先への反映は行っていません。
