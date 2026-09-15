@@ -7,7 +7,7 @@
   if(at>0)link('← '+String(list[at-1].id).padStart(2,'0')+' '+list[at-1].title,list[at-1].href);
   link('ラボ一覧','index.html');
   if(at<list.length-1)link(String(list[at+1].id).padStart(2,'0')+' '+list[at+1].title+' →',list[at+1].href);
-  else link(current>=15?'自律神経編の一覧・次のLAB →':'基礎編のまとめ・次のLAB →','index.html#next-labs');
+  else link(current===18?'全LABの一覧へ →':current>=15?'自律神経編の一覧・次のLAB →':'基礎編のまとめ・次のLAB →','index.html#next-labs');
   document.querySelector('.wrap').append(nav);
   document.querySelectorAll('input,select').forEach(el=>{
     if(el.labels?.length)return;

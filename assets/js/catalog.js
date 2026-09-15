@@ -73,5 +73,20 @@ window.LAB_CATALOG = [
     "id": 15,
     "title": "α1受容体と血管",
     "href": "pharmacology_lab_15_alpha1.html"
+  },
+  {
+    "id": 16,
+    "title": "β1受容体と心臓",
+    "href": "pharmacology_lab_16_beta1.html"
+  },
+  {
+    "id": 17,
+    "title": "β2受容体と気管支",
+    "href": "pharmacology_lab_17_beta2.html"
+  },
+  {
+    "id": 18,
+    "title": "副交感神経とムスカリン受容体",
+    "href": "pharmacology_lab_18_parasympathetic.html"
   }
 ];
