@@ -1,13 +1,13 @@
 (() => {
-  const current = +document.body.dataset.lab;
+  const current = document.body.dataset.lab;
   const list = window.LAB_CATALOG;
-  const at = list.findIndex(lab => lab.id === current);
+  const at = list.findIndex(lab => String(lab.id) === current);
   const nav = document.createElement('nav'); nav.className='lab-navigation';nav.setAttribute('aria-label','LAB間の移動');
   const link = (label, href) => {const a=document.createElement('a');a.textContent=label;a.href=href;nav.append(a);};
-  if(at>0)link('← '+String(list[at-1].id).padStart(2,'0')+' '+list[at-1].title,list[at-1].href);
+  if(at>0)link('← '+(list[at-1].label || String(list[at-1].id).padStart(2,'0'))+' '+list[at-1].title,list[at-1].href);
   link('ラボ一覧','index.html');
-  if(at<list.length-1)link(String(list[at+1].id).padStart(2,'0')+' '+list[at+1].title+' →',list[at+1].href);
-  else link(current===18?'全LABの一覧へ →':current>=15?'自律神経編の一覧・次のLAB →':'基礎編のまとめ・次のLAB →','index.html#next-labs');
+  if(at>=0 && at<list.length-1)link((list[at+1].label || String(list[at+1].id).padStart(2,'0'))+' '+list[at+1].title+' →',list[at+1].href);
+  else link(current==='18'?'全LABの一覧へ →':current>=15?'自律神経編の一覧・次のLAB →':'基礎編のまとめ・次のLAB →','index.html#next-labs');
   document.querySelector('.wrap').append(nav);
   document.querySelectorAll('input,select').forEach(el=>{
     if(el.labels?.length)return;
