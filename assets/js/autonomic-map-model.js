@@ -7,6 +7,7 @@ window.AUTONOMIC_MAP = {
       "receptors": "α1 / M3",
       "labs": [
         "alpha1",
+        "beta3",
         "muscarinic"
       ],
       "why": "交感神経はα1を介して瞳孔散大筋に、副交感神経はM3を介して瞳孔括約筋に作用します。"

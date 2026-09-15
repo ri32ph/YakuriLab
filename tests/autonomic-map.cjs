@@ -53,4 +53,4 @@ for(const reduced of [false,true]){
   assert(!links.some(l=>l.textContent.includes('NaN')));
  }
 }
-console.log('PASS: 4 independent modes, 7 organs, labels/links, receptor toggle, reset, motion preferences and all 19 navigation entries. DOM mocks; no browser rendering.');
+console.log('PASS: 4 independent modes, 7 organs, labels/links, receptor toggle, reset, motion preferences and all navigation entries. DOM mocks; no browser rendering.');
