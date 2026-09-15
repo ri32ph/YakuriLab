@@ -1,0 +1,57 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>11｜作動薬（アゴニスト）</title>
+<link rel="stylesheet" href="assets/css/common.css">
+<link rel="stylesheet" href="assets/css/lab-11.css">
+<link rel="stylesheet" href="assets/css/layout.css"></head><body class="lab-site lab-page" data-lab="11"><a class="skip-link" href="#experiment">実験へ移動</a><div class="wrap"><a class="lab-back" href="index.html">← 薬理シミュレーションラボ</a>
+<div class="top"><div><div class="lab">PHARMACOLOGY LAB · 11</div><h1>作動薬（アゴニスト）</h1><div class="sub">薬が受容体の「スイッチ」を押すと、何が起こる？</div></div><div class="badge">まずは「薬の量」だけ動かそう</div></div>
+<main class="sim" id="experiment">
+<section class="card controls"><div class="title">やってみよう</div><div class="hint"><strong>赤い薬を増やしてみてください。</strong><br>受容体の「OFF」が、どのように「ON」へ変わるか観察します。</div>
+<div><div class="row"><label><strong>薬の量</strong></label><span class="value" id="amountText">少ない</span></div><input id="amount" type="range" min="0" max="100" value="20"><div class="scale"><span>少ない</span><span>多い</span></div></div>
+<button class="primary" id="move">薬を受容体へ動かす</button><button id="reset">最初に戻す</button>
+<div class="hint"><strong>見るところは3つ</strong><br>① 赤い薬が受容体へ近づく<br>② ONになる受容体が増える<br>③ 細胞の反応が強くなる</div>
+<div class="advanced"><details><summary>発展モード｜親和性・最大反応を見る</summary><div style="margin-top:10px"><div class="row"><label>結合しやすさ（親和性）</label><span id="affText">標準</span></div><input id="aff" type="range" min="8" max="50" value="20"><select id="emax"><option value="100">完全作動薬：最大反応 100%</option><option value="60">部分作動薬：最大反応 60%</option></select></div></details></div>
+</section>
+<section class="card observe">
+<div class="panel"><div class="head"><div class="pt">観察する｜薬が受容体のスイッチをONにする</div><div class="badge" id="status">薬を動かしてみよう</div></div>
+<div class="visual"><svg viewBox="0 0 680 315">
+<text x="340" y="22" text-anchor="middle" font-size="13" fill="#667085">細胞の外</text>
+<g id="freeDrugs"></g><line x1="35" y1="175" x2="645" y2="175" stroke="#d8e0e9" stroke-width="13"/><text x="620" y="164" font-size="11" fill="#667085">細胞膜</text>
+<g id="rec"></g><g id="bound"></g>
+<text x="340" y="242" text-anchor="middle" font-size="13" font-weight="800" fill="#315b9a">受容体がONになる</text>
+<path d="M340 250 L340 278" stroke="#315b9a" stroke-width="4"/><path d="M332 270 L340 280 L348 270" fill="none" stroke="#315b9a" stroke-width="4"/>
+<rect x="220" y="284" width="240" height="27" rx="13" fill="#eef3f8"/><rect id="responseBar" x="220" y="284" width="0" height="27" rx="13" fill="#4f8a70"/><text id="responseLabel" x="340" y="303" text-anchor="middle" font-size="12" font-weight="900" fill="#172033">細胞の反応：弱い</text>
+</svg><div class="metrics"><div class="metric"><small>ONの受容体</small><strong id="on">0 / 8</strong></div><div class="metric"><small>細胞の反応</small><strong id="resp">0%</strong></div><div class="metric"><small>まだOFF</small><strong id="off">8 / 8</strong></div></div></div></div>
+<div class="panel"><div class="head"><div class="pt">薬を増やすと、作用はどうなる？ <span style="font-size:11px;color:#667085;font-weight:500">（濃度−反応曲線）</span></div></div><div class="graph"><svg viewBox="0 0 820 300">
+<line x1="70" y1="20" x2="70" y2="250" stroke="#cbd5e1" stroke-width="2"/><line x1="70" y1="250" x2="790" y2="250" stroke="#cbd5e1" stroke-width="2"/>
+<text x="10" y="25" font-size="12" fill="#667085">強い</text><text x="10" y="248" font-size="12" fill="#667085">弱い</text><text x="70" y="280" font-size="12" fill="#667085">少ない</text><text x="745" y="280" font-size="12" fill="#667085">薬の量：多い →</text>
+<polyline id="curve" fill="none" stroke="#315b9a" stroke-width="4"/><circle id="dot" r="8" fill="#df665f"/><text id="here" font-size="11" font-weight="800" fill="#df665f">いま</text></svg></div></div>
+</section></main><p class="model-note">このシミュレーションは学習用の単純化モデルです。受容体の占有率と薬理反応は、実際には必ずしも1対1に対応しません。図の受容体数は丸めて表示しています。</p>
+<section class="card explain"><h2 class="learning-heading">なぜ？</h2><div class="steps"><div class="step"><b>① 薬が近づく</b><p>作動薬が受容体の近くへやってきます。</p></div><div class="step"><b>② 受容体に結合</b><p>薬が受容体に結合します。</p></div><div class="step"><b>③ スイッチON</b><p>作動薬は受容体を活性化します。</p></div><div class="step"><b>④ 細胞が反応</b><p>ONが増えるほど、薬理作用が強くなります。</p></div></div><div class="hint follow-experiment"><strong>条件を変えて確かめる</strong><br>薬の量を減らしてから増やし、ONの受容体数と細胞の反応を比べよう。</div><div class="take"><strong>Take Home</strong><br><strong>作動薬＝受容体に結合して、受容体を活性化する薬。</strong> 薬を増やすと作用は強くなるが、やがて最大反応へ近づきます。</div></section>
+
+<section class="card explain" style="margin-top:12px">
+<div class="title" style="margin-bottom:12px">もう少し詳しく｜今見たことを薬理学の言葉で整理しよう</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
+<div class="step"><b>作動薬（agonist）とは？</b><p>受容体に<strong>結合するだけでなく、受容体を活性化する</strong>薬です。このシミュレーションでは、赤い薬が結合すると受容体が「OFF → ON」になります。</p></div>
+<div class="step"><b>なぜ薬を増やすと作用が強くなる？</b><p>薬が少ないと、受容体に結合する薬も少なくなります。薬の濃度が高くなるにつれて受容体が活性化される機会が増え、全体として薬理作用が強くなります。</p></div>
+<div class="step"><b>なぜ作用は頭打ちになる？</b><p>薬を増やし続けても作用は無限には増えません。その薬が起こせる<strong>最大反応（Emax）</strong>へ近づいていきます。</p></div>
+<div class="step"><b>親和性（affinity）とは？</b><p>薬が受容体へ<strong>結合しやすいかどうか</strong>を表す考え方です。ただし「結合しやすい」ことと「大きな作用を起こす」ことは同じ意味ではありません。</p></div>
+<div class="step"><b>部分作動薬とは？</b><p>受容体に結合して活性化しますが、十分な濃度があっても<strong>完全作動薬ほど大きな最大反応を起こさない</strong>作動薬です。発展モードで比較できます。</p></div>
+<div class="step"><b>この図は単純化したモデル</b><p>理解しやすくするため「ONになる受容体が増えるほど作用が強くなる」と表現しています。実際には、受容体占有率と薬理反応は必ずしも1対1ではありません。</p></div>
+</div>
+<div style="margin-top:14px;overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+<thead><tr style="background:#eef3f8"><th style="padding:9px;text-align:left;border:1px solid #dbe2ea">薬理学の言葉</th><th style="padding:9px;text-align:left;border:1px solid #dbe2ea">このシミュレーションでは</th></tr></thead>
+<tbody>
+<tr><td style="padding:9px;border:1px solid #dbe2ea"><strong>作動薬 agonist</strong></td><td style="padding:9px;border:1px solid #dbe2ea">赤い薬</td></tr>
+<tr><td style="padding:9px;border:1px solid #dbe2ea"><strong>受容体 receptor</strong></td><td style="padding:9px;border:1px solid #dbe2ea">OFF / ONになるスイッチ</td></tr>
+<tr><td style="padding:9px;border:1px solid #dbe2ea"><strong>受容体活性化</strong></td><td style="padding:9px;border:1px solid #dbe2ea">OFF → ON</td></tr>
+<tr><td style="padding:9px;border:1px solid #dbe2ea"><strong>薬理作用</strong></td><td style="padding:9px;border:1px solid #dbe2ea">「細胞の反応」のバー</td></tr>
+<tr><td style="padding:9px;border:1px solid #dbe2ea"><strong>Emax</strong></td><td style="padding:9px;border:1px solid #dbe2ea">その薬が起こせる最大反応</td></tr>
+<tr><td style="padding:9px;border:1px solid #dbe2ea"><strong>親和性 affinity</strong></td><td style="padding:9px;border:1px solid #dbe2ea">受容体への結合しやすさ</td></tr>
+</tbody></table></div>
+<div class="hint" style="margin-top:14px;background:#f7f2e7;border-left:5px solid #e1a83b"><strong>次の実験への問い</strong><br>では、<strong>「受容体には結合するけれど、スイッチをONにしない薬」</strong>が入ってきたら、作動薬の作用はどうなるでしょう？<br><span style="color:#667085">→ 12｜拮抗薬（アンタゴニスト）へ</span></div>
+</section>
+<p class="note"><strong>補足解説｜モデルの前提</strong><br>※学習用の単純化モデル。基本表示では「受容体のON」と「反応」を対応させて理解しやすくしている。実際には受容体占有率と薬理反応は必ずしも1対1ではなく、予備受容体や細胞内シグナル増幅などが関与する。</p>
+</div><script src="assets/js/common.js"></script>
+<script src="assets/js/lab-11.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/navigation.js"></script></body></html>

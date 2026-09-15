@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03｜肝臓・腎臓からの薬の消失</title>
+<link rel="stylesheet" href="assets/css/common.css">
+<link rel="stylesheet" href="assets/css/lab-03.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body class="lab-site lab-page" data-lab="03">
+<a class="skip-link" href="#experiment">実験へ移動</a><div class="wrap"><a class="lab-back" href="index.html">← 薬理シミュレーションラボ</a>
+<header>
+ <div><div class="lab">PHARMACOLOGY LAB · 03</div><h1>肝臓・腎臓からの薬の消失</h1><div class="sub">薬はどうやって体から消える？　条件を変えながら標準状態と比較しよう。</div></div>
+ <div class="badge">赤さ＝相対的な薬物濃度</div>
+</header>
+
+<main class="sim" id="experiment">
+<section class="card controls"><div class="hint"><strong>やってみよう</strong><br>薬のタイプを選び、肝臓と腎臓の消失能力を変えて、薬の残り方を比べよう。</div>
+ <div class="section-title">操作する</div>
+
+ <div>
+  <label for="drug">薬のタイプ</label>
+  <select id="drug">
+   <option value="liver">肝臓での消失が中心</option>
+   <option value="mixed" selected>肝臓・腎臓の両方</option>
+   <option value="kidney">腎臓での消失が中心</option>
+  </select>
+ </div>
+
+ <div>
+  <div class="row"><label for="lf">肝臓での消失能力（学習用）</label><span class="value" id="lfv">100%</span></div>
+  <input id="lf" type="range" min="10" max="100" value="100">
+ </div>
+
+ <div>
+  <div class="row"><label for="kf">腎臓での消失能力（学習用）</label><span class="value" id="kfv">100%</span></div>
+  <input id="kf" type="range" min="10" max="100" value="100">
+ </div>
+
+ <div class="hint" id="routeHint"></div><div class="row" style="padding:8px 0">
+  <label for="metToggle">代謝物を表示</label>
+  <button id="metToggle" type="button" aria-pressed="false" style="min-height:36px;padding:0 18px">OFF</button>
+ </div>
+ <div class="hint" id="metHint" style="display:none">赤＝未変化体 ／ 黄＝肝代謝で生成した代謝物。<br>この学習モデルでは、生成した代謝物はさらに体外へ消失する。</div>
+
+ <div class="buttons">
+  <button class="primary" id="dose">薬を投与</button>
+  <button id="pause" disabled>一時停止</button>
+  <button id="reset">リセット</button>
+ </div>
+
+ <div class="hint">
+  <strong>試してみよう</strong><br>
+  腎排泄の割合が小さい薬で腎臓の消失能力を下げた場合と、腎排泄中心の薬で下げた場合を比べてみよう。
+ </div>
+</section>
+
+<section class="card observe">
+ <div class="panel">
+  <div class="panel-head"><div class="panel-title">観察する｜体内からの消失</div><div class="badge" id="status">待機中</div></div>
+  <div class="tankrow">
+   <div class="tankbox">
+    <svg viewBox="0 0 640 260" aria-label="薬物消失の模式図">
+     <defs><clipPath id="tankclip"><rect x="135" y="25" width="370" height="145" rx="12"/></clipPath></defs>
+     <rect x="135" y="25" width="370" height="145" rx="12" fill="white" stroke="#cbd5e1" stroke-width="5"/>
+     <rect id="metWater" x="138" y="28" width="364" height="139" rx="9" fill="rgba(224,170,60,0)" clip-path="url(#tankclip)"/>
+     <rect id="water" x="138" y="28" width="364" height="139" rx="9" fill="rgba(217,92,92,0)" clip-path="url(#tankclip)"/>
+     <text id="concText" x="320" y="98" text-anchor="middle" font-size="38" font-weight="800" fill="#172033">0%</text>
+     <text x="320" y="123" text-anchor="middle" font-size="13" fill="#667085">未変化体</text>
+     <text id="metText" x="320" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#b47b16" visibility="hidden">代謝物 0%</text>
+
+     <path id="lp" d="M235 170 V225" stroke="#315b9a" stroke-width="24" stroke-linecap="round"/>
+     <path id="kp" d="M405 170 V225" stroke="#4f8a70" stroke-width="24" stroke-linecap="round"/>
+     <text x="235" y="250" text-anchor="middle" font-size="15" font-weight="700" fill="#315b9a">肝臓</text>
+     <text x="405" y="250" text-anchor="middle" font-size="15" font-weight="700" fill="#4f8a70">腎臓</text>
+    </svg>
+   </div>
+   <div class="metrics">
+    <div class="metric"><small>標準状態</small><strong id="stdNum">—</strong></div>
+    <div class="metric"><small>現在の条件</small><strong id="curNum">—</strong></div>
+    <div class="metric"><small>標準との差</small><strong id="diffNum">—</strong></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="panel">
+  <div class="panel-head"><div class="panel-title">薬物濃度 − 時間</div><div style="font-size:12px;color:#667085">破線：標準　赤：未変化体　黄：代謝物</div></div>
+  <div class="graphbox">
+   <svg viewBox="0 0 820 310" aria-label="薬物濃度時間グラフ">
+    <line x1="60" y1="18" x2="60" y2="260" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="60" y1="260" x2="790" y2="260" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="8" y="18" font-size="12" fill="#667085">濃度</text><text x="742" y="290" font-size="12" fill="#667085">時間 →</text>
+    <polyline id="stdLine" points="" fill="none" stroke="#98a2b3" stroke-width="3" stroke-dasharray="8 7"/>
+    <polyline id="curLine" points="" fill="none" stroke="#d95c5c" stroke-width="4"/>
+    <polyline id="metLine" points="" fill="none" stroke="#d9a33c" stroke-width="3" visibility="hidden"/>
+    <line id="nowLine" x1="60" x2="60" y1="18" y2="260" stroke="#667085" stroke-dasharray="3 5" visibility="hidden"/>
+    <circle id="dot" r="5.5" fill="#d95c5c" visibility="hidden"/>
+   </svg>
+  </div>
+ </div>
+</section>
+</main><p class="model-note">このシミュレーションは学習用の単純化モデルです。消失能力の割合は、eGFR・CrCl・Child-Pughなどの臨床指標に直接対応する数値ではありません。</p>
+
+<section class="card explain"><h2 class="learning-heading">なぜ？</h2>
+ <div class="explain-grid">
+  <div><h3>① 排出口の太さ</h3><p>薬がもともと肝臓・腎臓のどちらから消失しやすいかを模式的に表す。</p></div>
+  <div><h3>② 機能が低下すると</h3><p>その経路からの消失が遅くなる。ただし、もともと依存度の低い経路なら影響も小さい。</p></div>
+  <div><h3>③ グラフで比較</h3><p>標準状態と現在の条件を同じ時点まで右方向へ描き、薬の残り方の違いを見る。</p></div>
+ </div>
+ <div class="hint follow-experiment"><strong>条件を変えて確かめる</strong><br>薬のタイプを変え、同じ消失能力でも残り方が違うか比べよう。</div><div class="take"><strong>Take Home</strong><br>肝機能・腎機能の変化による影響は、機能低下の程度だけでなく、<strong>その薬がどの消失経路にどの程度依存しているか</strong>によって変わる。</div>
+</section>
+<p class="note"><strong>補足解説｜モデルの前提</strong><br>※代謝物表示も含めた学習用の単純化モデル。代謝物の生成・消失速度や活性は薬剤ごとに異なる。「肝臓での消失能力」「腎臓での消失能力」は臨床検査値そのものではない。実際の肝クリアランスには肝血流、酵素活性、蛋白結合など、腎クリアランスには糸球体濾過・尿細管分泌・再吸収などが関与する。</p>
+</div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/lab-03.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/navigation.js"></script>
+</body></html>

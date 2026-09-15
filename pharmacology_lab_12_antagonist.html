@@ -1,0 +1,41 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>12｜拮抗薬（アンタゴニスト）</title>
+<link rel="stylesheet" href="assets/css/common.css">
+<link rel="stylesheet" href="assets/css/lab-12.css">
+<link rel="stylesheet" href="assets/css/layout.css"></head><body class="lab-site lab-page" data-lab="12"><a class="skip-link" href="#experiment">実験へ移動</a><div class="wrap"><a class="lab-back" href="index.html">← 薬理シミュレーションラボ</a>
+<div class="top"><div><div class="lab">PHARMACOLOGY LAB · 12</div><h1>拮抗薬（アンタゴニスト）</h1><div class="sub">受容体に結合するのに「ONにしない薬」が入ると、何が起こる？</div></div><div class="badge">まずは「薬の量」だけ動かそう</div></div>
+<main class="sim" id="experiment">
+<section class="card controls"><div class="title">やってみよう</div>
+<div class="hint"><strong>赤＝作動薬、グレー＝拮抗薬</strong><br>まず作動薬を受容体へ結合させ、そのあと拮抗薬を増やしてみてください。</div>
+<div><div class="row"><label><strong>作動薬の量</strong></label><span class="value" id="aText">中くらい</span></div><input id="agonist" type="range" min="0" max="100" value="55"><div class="scale"><span>少ない</span><span>多い</span></div></div>
+<div><div class="row"><label><strong>拮抗薬の量</strong></label><span class="value" id="bText" style="color:#667085">なし</span></div><input id="antag" type="range" min="0" max="100" value="0"><div class="scale"><span>なし</span><span>多い</span></div></div>
+<button class="primary" id="move">薬を受容体へ動かす</button><button id="reset">最初に戻す</button>
+<div class="hint"><strong>観察ポイント</strong><br>① 拮抗薬も受容体に結合する<br>② でも受容体をONにしない<br>③ 作動薬が結合できる受容体が減り、反応が弱くなる</div>
+<div class="advanced"><details><summary>発展モード｜競合的拮抗をグラフで見る</summary><div class="hint" style="margin-top:10px">競合的拮抗では、同じ反応を得るために<strong>より高い作動薬濃度</strong>が必要になります。典型的には濃度−反応曲線が右方へ移動します。</div></details></div>
+</section>
+<section class="card observe">
+<div class="panel"><div class="head"><div class="pt">観察する｜受容体を取り合う</div><div class="badge" id="status">薬を動かしてみよう</div></div>
+<div class="visual"><svg viewBox="0 0 680 315">
+<text x="340" y="22" text-anchor="middle" font-size="13" fill="#667085">細胞の外</text><g id="freeDrugs"></g>
+<line x1="35" y1="175" x2="645" y2="175" stroke="#d8e0e9" stroke-width="13"/><text x="620" y="164" font-size="11" fill="#667085">細胞膜</text>
+<g id="rec"></g><g id="bound"></g><text x="340" y="242" text-anchor="middle" font-size="13" font-weight="800" fill="#315b9a">作動薬が結合した受容体だけがON</text>
+<path d="M340 250 L340 278" stroke="#315b9a" stroke-width="4"/><path d="M332 270 L340 280 L348 270" fill="none" stroke="#315b9a" stroke-width="4"/>
+<rect x="220" y="284" width="240" height="27" rx="13" fill="#eef3f8"/><rect id="responseBar" x="220" y="284" width="0" height="27" rx="13" fill="#4f8a70"/><text id="responseLabel" x="340" y="303" text-anchor="middle" font-size="12" font-weight="900">細胞の反応：弱い</text>
+</svg><div class="metrics"><div class="metric"><small>作動薬でON</small><strong id="on">0 / 8</strong></div><div class="metric"><small>拮抗薬が占有</small><strong id="blocked">0 / 8</strong></div><div class="metric"><small>細胞の反応</small><strong id="resp">0%</strong></div></div></div></div>
+<div class="panel"><div class="head"><div class="pt">拮抗薬があると、作動薬の曲線はどうなる？</div><div style="font-size:11px;color:#667085">破線：拮抗薬なし　青：現在</div></div><div class="graph"><svg viewBox="0 0 820 300">
+<line x1="70" y1="20" x2="70" y2="250" stroke="#cbd5e1" stroke-width="2"/><line x1="70" y1="250" x2="790" y2="250" stroke="#cbd5e1" stroke-width="2"/><text x="10" y="25" font-size="12" fill="#667085">強い</text><text x="10" y="248" font-size="12" fill="#667085">弱い</text><text x="70" y="280" font-size="12" fill="#667085">少ない</text><text x="720" y="280" font-size="12" fill="#667085">作動薬：多い →</text>
+<polyline id="baseCurve" fill="none" stroke="#98a2b3" stroke-width="3" stroke-dasharray="6 6"/><polyline id="curve" fill="none" stroke="#315b9a" stroke-width="4"/><circle id="dot" r="8" fill="#df665f"/></svg></div></div>
+</section></main><p class="model-note">このシミュレーションは学習用の単純化モデルです。受容体の占有率と薬理反応は、実際には必ずしも1対1に対応しません。図の受容体数は丸めて表示しています。</p>
+<section class="card explain"><h2 class="learning-heading">なぜ？</h2><div class="steps"><div class="step"><b>① 拮抗薬も結合する</b><p>拮抗薬も受容体に結合します。</p></div><div class="step"><b>② でもONにしない</b><p>作動薬と違い、受容体を活性化しません。</p></div><div class="step"><b>③ 作動薬と競合する</b><p>同じ結合部位を競う場合、作動薬が結合しにくくなります。</p></div><div class="step"><b>④ 反応が弱くなる</b><p>同じ量の作動薬では、得られる反応が小さくなります。</p></div></div>
+<div class="hint follow-experiment"><strong>条件を変えて確かめる</strong><br>拮抗薬の量を固定して作動薬を増やし、反応がどう変わるか確かめよう。</div><div class="take"><strong>Take Home</strong><br><strong>拮抗薬＝受容体に結合しても、その受容体を活性化しない薬。</strong> 競合的拮抗では、作動薬と同じ受容体を取り合うため、同じ反応を得るにはより多くの作動薬が必要になります。</div></section>
+<section class="card explain" style="margin-top:12px"><div class="title" style="margin-bottom:12px">もう少し詳しく｜作動薬との違いを整理しよう</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
+<div class="step"><b>作動薬との違い</b><p>作動薬は<strong>結合＋活性化</strong>。拮抗薬は<strong>結合するが活性化しない</strong>、という違いがあります。</p></div>
+<div class="step"><b>競合的拮抗とは？</b><p>作動薬と拮抗薬が同じ受容体の結合部位を競います。拮抗薬が多いほど、作動薬は結合しにくくなります。</p></div>
+<div class="step"><b>作動薬を増やすと？</b><p>可逆的な競合的拮抗では、作動薬濃度を十分に高くすると拮抗を乗り越えられるため、典型的には最大反応は保たれます。</p></div>
+<div class="step"><b>曲線の右方移動</b><p>同じ反応を得るために必要な作動薬濃度が高くなるため、濃度−反応曲線は右方向へ移動します。</p></div></div>
+<div class="hint" style="margin-top:14px;background:#f7f2e7;border-left:5px solid #e1a83b"><strong>次の実験への問い</strong><br>この「受容体を刺激する／遮断する」という考え方を、実際の<strong>α1受容体</strong>に当てはめると、血管や血圧はどう変化するでしょう？<br><span style="color:#667085">→ 13｜α1受容体へ</span></div></section>
+<p class="note"><strong>補足解説｜モデルの前提</strong><br>※学習用の競合的拮抗モデル。すべての拮抗薬が競合的とは限らず、非競合的拮抗・不可逆的拮抗などでは濃度−反応関係が異なる。実際の反応は受容体占有率だけで決まるものではない。</p>
+</div><script src="assets/js/common.js"></script>
+<script src="assets/js/lab-12.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/navigation.js"></script></body></html>
