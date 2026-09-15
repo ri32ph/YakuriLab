@@ -51,12 +51,27 @@ window.LAB_CATALOG = [
   },
   {
     "id": 11,
-    "title": "作動薬（アゴニスト）",
-    "href": "pharmacology_lab_11_agonist_explained.html"
+    "title": "活動電位と神経の伝導",
+    "href": "pharmacology_lab_11_action_potential.html"
   },
   {
     "id": 12,
+    "title": "シナプスでの伝達",
+    "href": "pharmacology_lab_12_synapse.html"
+  },
+  {
+    "id": 13,
+    "title": "作動薬（アゴニスト）",
+    "href": "pharmacology_lab_13_agonist.html"
+  },
+  {
+    "id": 14,
     "title": "拮抗薬（アンタゴニスト）",
-    "href": "pharmacology_lab_12_antagonist.html"
+    "href": "pharmacology_lab_14_antagonist.html"
+  },
+  {
+    "id": 15,
+    "title": "α1受容体と血管",
+    "href": "pharmacology_lab_15_alpha1.html"
   }
 ];
