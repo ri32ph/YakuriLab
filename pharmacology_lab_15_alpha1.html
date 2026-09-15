@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="α1受容体の作動薬と拮抗薬を動かして、受容体のON・OFFと血管の収縮を確かめる学習用教材。">
+<title>15｜α1受容体と血管</title>
+<link rel="stylesheet" href="assets/css/lab-15.css">
+</head>
+<body class="lab-site lab-page" data-lab="15">
+<a class="skip-link" href="#experiment">実験へ移動</a>
+<div class="wrap">
+<a class="lab-back" href="index.html">← 薬理シミュレーションラボ</a>
+<header><div><div class="eyebrow">PHARMACOLOGY LAB · 15</div><h1><img src="assets/icons/GitBranch.svg" width="32" height="32" alt="">α1受容体と血管</h1><p class="sub">受容体のスイッチがONになると、血管はどう変わる？</p></div><span class="badge">自律神経編｜血管・血圧</span></header>
+<main class="sim" id="experiment">
+<section class="card controls" aria-labelledby="controls-title">
+<div class="hint"><strong>やってみよう</strong><p>まず作動薬を結合させてみよう。次に拮抗薬を増やして、受容体と血管の変化を比べよう。</p></div>
+<h2 id="controls-title">操作する</h2>
+<div class="control"><div class="label-row"><label for="agonist">α1作動薬の量</label><output id="aText" for="agonist">中くらい</output></div><input id="agonist" type="range" min="0" max="100" step="1" value="55"><div class="scale"><span>なし</span><span>多い</span></div></div>
+<div class="control"><div class="label-row"><label for="antag">α1拮抗薬の量</label><output id="bText" for="antag">なし</output></div><input id="antag" type="range" min="0" max="100" step="1" value="0"><div class="scale"><span>なし</span><span>多い</span></div></div>
+<button class="primary" id="move">薬を受容体へ結合させる</button><button id="reset">最初に戻す</button>
+<div class="legend"><span><i class="drug-red" aria-hidden="true"></i>作動薬：ONにする</span><span><i class="drug-gray" aria-hidden="true"></i>拮抗薬：結合してもONにしない</span></div>
+<div class="hint"><strong>見るところ</strong><ol><li>ONの受容体が増える？</li><li>血管の内側は狭くなる？</li><li>拮抗薬を増やすとどうなる？</li></ol></div>
+<p class="small">結合させた後は、スライダーの変更が図とグラフに反映されます。薬の量は学習用の相対値です。</p>
+</section>
+<section class="observe" aria-label="受容体と血管を観察する">
+<section class="card panel" aria-labelledby="switch-title"><div class="panel-head"><h2 id="switch-title">① α1受容体のスイッチ</h2><span id="status" class="badge" role="status">結合前</span></div>
+<p class="small">血管の壁にある平滑筋細胞の受容体を、8個のスイッチで表しています。</p>
+<div class="receptor-grid" id="receptors" aria-label="8個のα1受容体"></div>
+<div class="metrics"><div><span>作動薬でON</span><strong id="on">0 / 8</strong></div><div><span>拮抗薬が結合・OFF</span><strong id="blocked">0 / 8</strong></div><div><span>収縮の強さ（相対）</span><strong id="resp">0%</strong></div></div>
+</section>
+<section class="card panel" aria-labelledby="vessel-title"><h2 id="vessel-title">② 血管の壁が縮むと、内側が狭くなる</h2><div class="vessel-layout">
+<svg viewBox="0 0 320 245" role="img" aria-label="血管の断面。赤い壁の内側が血液の通り道です。">
+<circle cx="160" cy="110" r="94" fill="#efc6c3"/><circle id="lumen" cx="160" cy="110" r="72" fill="#fff" stroke="#ce6660" stroke-width="4"/>
+<circle cx="160" cy="110" r="72" fill="none" stroke="#98a2b3" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="160" y="106" text-anchor="middle" font-size="15" fill="#344054">血液の</text><text x="160" y="126" text-anchor="middle" font-size="15" fill="#344054">通り道</text>
+<text x="160" y="229" text-anchor="middle" font-size="13" fill="#667085">破線：作動薬による収縮がないとき</text>
+</svg><div class="vessel-description"><strong id="vesselState">収縮していない</strong><p id="resistance">このモデルでのα1刺激による収縮はありません。</p><div class="pressure"><span>血圧へのつながり</span><p id="pressureText">まず作動薬を結合させてみよう。</p></div></div></div>
+</section>
+<section class="card panel" aria-labelledby="graph-title"><h2 id="graph-title">③ グラフで確認｜作動薬の量と収縮</h2><p class="small">グレー破線：拮抗薬なし ／ 赤実線：現在の拮抗薬量</p>
+<div class="graph"><svg viewBox="0 0 700 285" role="img" aria-label="作動薬の量と血管収縮の濃度反応曲線。拮抗薬の有無を比較します。">
+<path d="M55 30 V235 H670" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+<text x="4" y="32" font-size="13" fill="#667085">100%</text><text x="20" y="239" font-size="13" fill="#667085">0</text><text x="55" y="258" font-size="13" fill="#667085">なし</text><text x="642" y="258" font-size="13" fill="#667085">多い</text><text x="235" y="279" font-size="13" fill="#667085">作動薬の量（相対値） →</text>
+<polyline id="baseCurve" fill="none" stroke="#98a2b3" stroke-width="3" stroke-dasharray="6 6"/><polyline id="curve" fill="none" stroke="#d95c5c" stroke-width="3"/><circle id="dot" r="6" fill="#315b9a" visibility="hidden"/>
+</svg></div><p class="small" id="graphHelp">横軸は時間ではありません。曲線は各量での反応の予測を示し、結合後は青い点で現在の状態を示します。</p>
+</section>
+</section></main>
+<section class="card explain"><h2>なぜ？</h2><div class="explain-grid"><div><h3>α1受容体がONになる</h3><p>作動薬が血管平滑筋のα1受容体を刺激すると、細胞内に収縮の合図が伝わります。</p></div><div><h3>平滑筋が収縮する</h3><p>血管の壁が収縮すると、血液の通り道が狭くなり、流れにくくなります。</p></div><div><h3>拮抗薬が刺激を妨げる</h3><p>拮抗薬は受容体に結合してもONにしません。同じ作動薬量でも、収縮の合図が弱まります。</p></div></div>
+<div class="hint"><strong>条件を変えて確かめる</strong><p>① 作動薬を結合させ、拮抗薬を増やす。② 拮抗薬を固定して作動薬を増やす。③ 作動薬を0にする。それぞれでONの受容体と血管の太さを見比べよう。</p></div>
+<div class="take"><strong>Take Home</strong><p>α1受容体の刺激は、血管平滑筋を収縮させる。α1拮抗薬は、その刺激による収縮を弱める。</p></div></section>
+<section class="card explain"><details><summary>補足解説｜血圧と、モデルで省略していること</summary><h3>血管から血圧へ</h3><p>細い動脈の収縮は末梢血管抵抗を高め、心拍出量などが同じなら血圧を上げる方向に働きます。実際の血圧には心臓の働き、循環血液量、反射性の調節なども関わります。この図から血圧の値は計算できません。</p><h3>受容体から細胞への合図</h3><p>α1受容体はGqというタンパク質を介して細胞内へ信号を伝え、カルシウムの増加などを通して平滑筋の収縮につながります。</p><h3>学習用の単純化</h3><p>ここでは可逆的な競合的拮抗を仮定し、受容体占有率を収縮の指標として使っています。実際の占有率と反応は必ずしも1対1ではありません。図の8個は丸めて示すため、個数が同じでも収縮指標が変わる場合があります。血管内径の変化量も説明用で、実測値ではありません。</p><p>内因性のノルアドレナリンによる刺激や基礎的な血管の緊張は省略しています。そのため作動薬0では、拮抗薬だけを増やしても図は広がりません。臨床では内因性の刺激を遮断する作用もあります。</p><p>競合的拮抗は十分な作動薬で乗り越えられますが、このグラフの表示範囲では最大反応に届かない場合があります。</p><p>参考：<a href="https://www.ncbi.nlm.nih.gov/books/NBK551698/" target="_blank" rel="noopener noreferrer">Alpha-1 Receptor Agonists</a> ／ <a href="https://www.ncbi.nlm.nih.gov/books/NBK556066/" target="_blank" rel="noopener noreferrer">Alpha-Blockers</a></p></details></section>
+<p class="small model-note">学習用モデルです。薬の量・収縮の割合・血管の太さは、実際の薬剤用量や患者の測定値には対応しません。</p>
+</div><script src="assets/js/receptor-models.js"></script><script src="assets/js/lab-15.js"></script><script src="assets/js/catalog.js"></script><script src="assets/js/navigation.js"></script></body></html>
