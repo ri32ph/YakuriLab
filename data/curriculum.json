@@ -352,7 +352,8 @@
       "number": 33,
       "title": "虚血性心疾患",
       "question": "心筋の酸素需要と供給を比べる。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "ischemic-heart-disease"
     },
     {
       "number": 34,
