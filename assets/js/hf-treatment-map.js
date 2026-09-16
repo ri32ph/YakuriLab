@@ -9,6 +9,7 @@ function mount(container){
   const copy=(key,text)=>container.querySelector(`[data-copy="${key}"]`).textContent=text;
   for(const el of container.querySelectorAll('[data-target]'))el.classList.remove('attenuated');
   for(const el of container.querySelectorAll('[data-organ]'))el.classList.remove('treatment-organ');
+  container.querySelector('.return-loop>span').textContent='↶ 心臓の負担・うっ血 → 悪化する方向 → ポンプ機能へ';
   if(!s.after)return;
   const c=s.changed;
   copy('heart','ポンプ機能低下は残す。COの変化は予測しない');
@@ -24,6 +25,7 @@ function mount(container){
    const node=container.querySelector(`[data-target="${key}"]`);
    for(const label of labels){const mark=document.createElement('span');mark.className='treatment-block';mark.textContent=label;node.append(mark);}
   }
+  if(c.np){const mark=document.createElement('span');mark.className='treatment-block np-boost';mark.textContent='NP系の作用↑';container.querySelector('[data-target="raas"]').append(mark);}
   const downstream={sympathetic:c.sympathetic,raas:c.raas,vessels:c.vessels,volume:c.volume,congestion:c.volume,load:c.load};
   for(const [key,on] of Object.entries(downstream))if(on)container.querySelector(`[data-target="${key}"]`)?.classList.add('attenuated');
   const organs=[];if(c.sympathetic)organs.push('heart');if(s.channels.kidneys||c.aldosteroneAction)organs.push('kidneys');

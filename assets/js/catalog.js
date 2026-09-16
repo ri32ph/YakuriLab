@@ -288,5 +288,25 @@ window.LAB_CATALOG = [
     "title": "心不全治療薬",
     "href": "pharmacology_lab_32_heart_failure_drugs.html",
     "key": "heart-failure-drugs"
+  },
+  {
+    "id": "ischemic-heart-disease",
+    "label": "33",
+    "numbers": [
+      33
+    ],
+    "title": "虚血性心疾患",
+    "href": "pharmacology_lab_33_ischemic_heart_disease.html",
+    "key": "ischemic-heart-disease"
+  },
+  {
+    "id": "arrhythmia",
+    "label": "34",
+    "numbers": [
+      34
+    ],
+    "title": "不整脈",
+    "href": "pharmacology_lab_34_arrhythmia.html",
+    "key": "arrhythmia"
   }
 ];

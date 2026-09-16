@@ -4,7 +4,7 @@
 'use strict';
 const family=['arni','ace','arb'];
 const drugs={
- arni:{name:'ARNI',role:'longterm',targets:['raas'],blocks:{raas:'AT1 BLOCK ＋ NP作用↑'},effects:['raas','vessels','sodium','volume','load','np'],
+ arni:{name:'ARNI',role:'longterm',targets:['raas'],blocks:{raas:'AT1 BLOCK'},effects:['raas','vessels','sodium','volume','load','np'],
   mechanism:['AT1受容体遮断 → RAAS系の作用↓','ネプリライシン阻害 → ナトリウム利尿ペプチド（NP）系の作用↑'],
   note:'RAAS系の抑制と、血管拡張・Na⁺排泄などを促すNP系の増強という2方向で働きます。',
   observe:['血圧：血管・体液量への作用による低血圧やふらつき','腎機能・K⁺：RAAS系への介入に伴う変化'],
