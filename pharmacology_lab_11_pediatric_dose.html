@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>11｜薬用量をどう見積もる？</title>
+  <meta name="description" content="同じ小児患者でも、年齢・体重・体表面積によって推算値が異なることを比べる学習用シミュレーション。">
+  <link rel="stylesheet" href="assets/css/lab-15.css">
+  <link rel="stylesheet" href="assets/css/pediatric-dose.css">
+</head>
+<body class="lab-site lab-page" data-lab="pediatric-dose">
+<a class="skip-link" href="#experiment">実験へ移動</a>
+<div class="wrap">
+  <a class="lab-back" href="index.html">← 薬理シミュレーションラボ</a>
+  <header>
+    <div>
+      <div class="eyebrow">PHARMACOLOGY LAB · 11</div>
+      <h1><img src="assets/icons/SlidersHorizontal.svg" width="32" height="32" alt="">薬用量をどう見積もる？</h1>
+      <p class="sub">小児薬用量の推算式を比べてみよう</p>
+    </div>
+    <span class="badge">薬用量の考え方</span>
+  </header>
+
+  <section class="opening-question" aria-labelledby="openingTitle">
+    <span>最初の問い</span>
+    <h2 id="openingTitle">成人量500 mgの薬。子どもには何mg？</h2>
+    <p>年齢？ 体重？ 体表面積？　条件を動かして、答えが1つではないことを確かめます。</p>
+  </section>
+
+  <main class="sim dose-sim" id="experiment">
+    <section class="card controls patient-controls" aria-labelledby="controlsTitle">
+      <div class="hint"><strong>やってみよう</strong><p>同じ患者条件で6つの古典的な推算方法を同時に比べます。</p></div>
+      <h2 id="controlsTitle">患者を設定する</h2>
+
+      <div class="compact-control">
+        <div class="label-row"><label for="ageRange">年齢</label><output id="ageOutput">6歳0か月</output></div>
+        <div class="range-number"><input id="ageRange" type="range" min="0" max="15" step="1" value="6"><input id="ageNumber" type="number" min="0" max="15" step="1" value="6" aria-label="年齢 数値入力"><span>歳</span></div>
+      </div>
+      <div class="compact-control month-control">
+        <div class="label-row"><label for="monthNumber">追加の月齢</label><span class="field-note">0〜11か月</span></div>
+        <div class="number-unit"><input id="monthNumber" type="number" min="0" max="11" step="1" value="0"><span>か月</span></div>
+      </div>
+      <div class="compact-control">
+        <div class="label-row"><label for="weightRange">体重</label><output id="weightOutput">20 kg</output></div>
+        <div class="range-number"><input id="weightRange" type="range" min="2" max="80" step="0.5" value="20"><input id="weightNumber" type="number" min="2" max="80" step="0.5" value="20" aria-label="体重 数値入力"><span>kg</span></div>
+      </div>
+      <div class="compact-control">
+        <div class="label-row"><label for="heightRange">身長</label><output id="heightOutput">115 cm</output></div>
+        <div class="range-number"><input id="heightRange" type="range" min="40" max="190" step="1" value="115"><input id="heightNumber" type="number" min="40" max="190" step="1" value="115" aria-label="身長 数値入力"><span>cm</span></div>
+      </div>
+      <div class="compact-control">
+        <div class="label-row"><label for="adultRange">成人量</label><output id="adultOutput">500 mg</output></div>
+        <div class="range-number"><input id="adultRange" type="range" min="50" max="1000" step="10" value="500"><input id="adultNumber" type="number" min="50" max="1000" step="10" value="500" aria-label="成人量 数値入力"><span>mg</span></div>
+      </div>
+
+      <div class="preset-block">
+        <h3>条件を変えて確かめる</h3>
+        <div class="preset-grid">
+          <button type="button" data-preset="age">年齢だけ変える</button>
+          <button type="button" data-preset="weight">体重だけ変える</button>
+          <button type="button" data-preset="height">身長だけ変える</button>
+          <button type="button" data-preset="sameAge">同年齢・違う体格</button>
+          <button type="button" data-preset="sameWeight">同体重・違う年齢</button>
+        </div>
+        <p class="small preset-message" id="presetMessage">どの式が動き、どの式が動かないかを見てみよう。</p>
+      </div>
+      <button type="button" id="reset">初期値に戻す</button>
+    </section>
+
+    <section class="observe" aria-labelledby="resultsTitle">
+      <section class="card panel result-panel">
+        <div class="panel-head">
+          <div><h2 id="resultsTitle">推算結果を比べる</h2><p class="small">すべて「成人量からの換算値」です。クリックすると計算過程を表示します。</p></div>
+          <div class="patient-chip" id="patientChip">6歳0か月・20 kg・115 cm</div>
+        </div>
+        <div class="adult-reference"><span>成人量</span><strong id="adultReference">500 mg</strong><div><i></i></div><b>100%</b></div>
+        <div class="result-list" id="resultList" aria-live="polite"></div>
+        <div class="spread-note" id="spreadNote"></div>
+      </section>
+
+      <section class="card panel method-panel" aria-labelledby="methodTitle">
+        <div class="method-copy">
+          <div class="method-heading"><span id="methodCategory" class="category age">年齢</span><h2 id="methodTitle">Young式の計算</h2></div>
+          <div id="calculationSteps" class="calculation-steps"></div>
+          <button type="button" class="source-button" id="sourceButton" aria-expanded="false">ⓘ 式について・出典</button>
+          <div id="sourceDetail" class="source-detail" hidden></div>
+        </div>
+        <div class="bsa-visual" id="bsaVisual" hidden>
+          <div class="child-figure" id="childFigure" aria-hidden="true"><i class="head"></i><i class="body"></i><i class="arm left"></i><i class="arm right"></i><i class="leg left"></i><i class="leg right"></i></div>
+          <strong id="bsaValue">BSA 0.80 m²</strong><span>体表面積＝身体の表面の大きさを表す指標</span>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <section class="card explain advanced-section">
+    <details>
+      <summary>発展モード｜式とBSAをさらに比べる</summary>
+      <div class="advanced-grid">
+        <div>
+          <h3>BSAの計算式</h3>
+          <label for="bsaMethod">Crawford式に使うBSA</label>
+          <select id="bsaMethod"><option value="mosteller">Mosteller式</option><option value="dubois">Du Bois式</option><option value="fujimoto">藤本式（年齢区分）</option></select>
+          <div class="bsa-comparison" id="bsaComparison"></div>
+          <p class="small">同じ身長・体重でも、計算式によって推算BSAは完全には一致しません。</p>
+        </div>
+        <div>
+          <h3>発展式</h3>
+          <div id="advancedResults" class="mini-results"></div>
+          <label class="check"><input id="premature" type="checkbox"> von Harnackを「未熟児 1/10」の学習用区分で表示</label>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="card explain compare-section">
+    <h2>同じ子どもなのに、なぜ答えが違う？</h2>
+    <p>式ごとに見ている情報が違います。</p>
+    <div class="factor-map"><span><b>Young</b>年齢だけ</span><span><b>Clark</b>体重だけ</span><span><b>Crawford</b>身長＋体重からBSA</span><span><b>Lenart</b>年齢＋体重</span><span><b>換算表</b>年齢区分</span></div>
+    <div id="patientComparison" class="patient-comparison" hidden></div>
+  </section>
+
+  <section class="card explain product-dose-section">
+    <div class="section-heading"><div><h2>医薬品ごとに設定された小児用量との違い</h2><p>架空の例：10 mg/kg/日、最大400 mg/日、3回分服</p></div><span class="fiction-label">架空の学習例</span></div>
+    <div class="product-dose-grid">
+      <div class="dose-flow" id="mgkgFlow"></div>
+      <div class="mgkg-bars" id="mgkgBars"></div>
+    </div>
+    <div class="day-dose-warning"><strong>mg/kg/日</strong><span>1日量を求め、回数で分ける</span><b>≠</b><strong>mg/kg/回</strong><span>1回ごとに体重を掛ける</span></div>
+    <p class="small">成人量からの古典的な換算と、その医薬品について設定された小児用法・用量は別の考え方です。</p>
+  </section>
+
+  <section class="card explain">
+    <h2>同じmg/kgなら、体内の薬の濃度も同じ？</h2>
+    <p>小児は単に成人を小さくした存在ではありません。年齢によって肝代謝、腎排泄、クリアランス、半減期なども異なり得ます。</p>
+    <div class="pk-links"><a href="pharmacology_lab_03_metabolite_toggle_fixed.html">03 消失を見る →</a><a href="pharmacology_lab_04_split.html">04 半減期を見る →</a><a href="pharmacology_lab_09_metabolite_toggle.html">09 腎排泄を見る →</a></div>
+    <div class="take"><strong>Take Home</strong><p>成人量から小児量を推算する方法には、年齢・体重・体表面積などを使う複数の方法があります。使う情報や式が違えば、同じ小児でも推算値は異なります。実際の薬用量は古典的換算式だけで決めず、その医薬品について設定された小児用法・用量などを確認します。</p></div>
+    <div class="safety-note"><strong>学習用モデル</strong><p>この教材は患者個別の処方量を決定する医療計算機ではありません。実際には医薬品、適応、年齢、体重、用法、1回量／1日量、最大量、腎・肝機能、剤形などを確認します。表示値は「推算量」「成人量からの換算値」であり、推奨量や適正量を示しません。</p></div>
+    <details class="references"><summary>式について・参考文献</summary><div id="allSources"></div></details>
+  </section>
+  <p class="small model-note">計算途中では丸めず、画面表示時のみ丸めています。換算表の区分間は線形補間していません。</p>
+</div>
+<script src="assets/js/pediatric-dose-model.js"></script>
+<script src="assets/js/pediatric-dose.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/navigation.js"></script>
+</body>
+</html>
