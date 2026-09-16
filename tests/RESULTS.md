@@ -1,5 +1,13 @@
 # 検証結果
 
+## LAB 36・37「ネフロンとNa⁺・水／利尿薬の作用部位」追加
+
+- 近位尿細管、下行脚、太い上行脚、遠位尿細管、集合管のNa⁺・水の扱いを共通モデルで検証。
+- ADH OFFで集合管の水再吸収が減り、尿に残る水が増える方向を確認。
+- ループ、サイアザイド、MRA、ENaC阻害、炭酸脱水酵素阻害、SGLT2阻害で尿細管内Na⁺と下流送達が増える方向を確認。
+- 浸透圧利尿薬は輸送体阻害ではなく、水再吸収を抑える別機序として検証。
+- 36・37が同じ `nephron-model.js`、`nephron-view.js`、`nephron.css` を読み込むことを確認。
+
 ## LAB 11「薬用量をどう見積もる？」追加
 
 - Young、Clark、Augsberger I・II、Crawford、Fried、Lenartを独立関数として検証。
@@ -174,3 +182,12 @@
 - 既存＋新規の非ブラウザ16スクリプト：intro-models / intro-controls / neural / alpha1 / autonomic / autonomic-map / blood-pressure / expansion-labs / expansion-motion / heart-motion / raas / antihypertensive / heart-failure / hf-treatment / ischemia / rhythm：PASS。
 - ローカルのページ／アセットリンクとカタログ・目次の参照を確認。34は利用可能、35は予定。公開サイトへのデプロイは実施していません。
 - ECG・膜電位・時間・血行動態の臨床的妥当性を検証したものではなく、教育用モデルの整合性・操作・表示を確認しています。
+
+## 2026-09-16｜LAB 38・39 電解質と浮腫
+
+- LAB 38：ループ／サイアザイドで遠位Na⁺送達とK⁺排泄が増える方向、MRA／ENaC阻害でK⁺排泄が減る方向、併用が単純相殺にならないことを確認。
+- LAB 38：尿中Na⁺排泄と血清Na⁺濃度を別変数とし、水収支で血清Na⁺の方向が変わることを確認。集合管主細胞にENaC、ROMK、Na⁺/K⁺-ATPase、MRを表示。
+- LAB 39：毛細血管内圧上昇、血漿膠質浸透圧低下、血管透過性上昇、リンパ還流低下の各条件で間質液が増えることを確認。
+- LAB 39：体内Na⁺と水を独立して変更し、血管内容量と有効動脈血液量を別指標として確認。心不全設定では肺うっ血方向を表示。
+- 全非ブラウザテスト（Playwright必須の旧`models.cjs`を除く）、全JavaScript構文、全HTMLのローカル参照：PASS。
+- 現環境にPlaywrightがないため、LAB 38・39の実ブラウザによる最終レイアウト確認は未実施。公開サイトへの反映も未実施です。

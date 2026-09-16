@@ -1,0 +1,7 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'assets/js/body-fluid-model.js'),'utf8'),ctx);const M=ctx.window.BODY_FLUID_MODEL,n=M.state();
+for(const id of ['venous','albumin','inflammation','lymph','heartFailure','cirrhosis'])assert(M.state(M.PRESETS[id]).interstitialVolume>n.interstitialVolume,`${id} should increase interstitial fluid`);
+assert(M.state(M.PRESETS.diuretic).interstitialVolume<n.interstitialVolume);assert(M.state(M.PRESETS.heartFailure).effectiveArterialVolume<M.state(M.PRESETS.heartFailure).intravascularVolume);assert(M.state({waterRetention:90}).serumNaIndex<n.serumNaIndex);assert(M.state({sodiumRetention:90}).serumNaIndex>n.serumNaIndex);
+assert.equal(M.state(M.PRESETS.venous).mainFactor,'毛細血管内圧');assert.equal(M.state(M.PRESETS.albumin).mainFactor,'血漿膠質浸透圧');assert.equal(M.state(M.PRESETS.inflammation).mainFactor,'血管透過性');assert.equal(M.state(M.PRESETS.lymph).mainFactor,'リンパ還流');
+const html=fs.readFileSync(path.join(root,'pharmacology_lab_39_edema.html'),'utf8');for(const x of ['有効動脈血液量','グリコカリックス','リンパ還流','学習用モデル','pharmacology_lab_38_electrolytes.html'])assert(html.includes(x));
+console.log('PASS: LAB 39 four edema mechanisms, independent sodium/water, effective arterial volume, diuresis and teaching text.');
