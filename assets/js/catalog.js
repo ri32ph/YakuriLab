@@ -318,5 +318,41 @@ window.LAB_CATALOG = [
     "title": "不整脈",
     "href": "pharmacology_lab_34_arrhythmia.html",
     "key": "arrhythmia"
+  },
+  {
+    "id": "nephron",
+    "label": "36",
+    "numbers": [
+      36
+    ],
+    "title": "ネフロンとNa⁺・水",
+    "href": "pharmacology_lab_36_nephron.html",
+    "key": "nephron"
+  },
+  {
+    "id": "diuretic-sites",
+    "label": "37",
+    "numbers": [
+      37
+    ],
+    "title": "利尿薬の作用部位",
+    "href": "pharmacology_lab_37_diuretic_sites.html",
+    "key": "diuretic-sites"
+  },
+  {
+    "id": "electrolytes",
+    "label": "38",
+    "numbers": [38],
+    "title": "利尿薬とK⁺・Na⁺",
+    "href": "pharmacology_lab_38_electrolytes.html",
+    "key": "electrolytes"
+  },
+  {
+    "id": "edema",
+    "label": "39",
+    "numbers": [39],
+    "title": "体液量と浮腫",
+    "href": "pharmacology_lab_39_edema.html",
+    "key": "edema"
   }
 ];

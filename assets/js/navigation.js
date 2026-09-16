@@ -7,7 +7,8 @@
   if(at>0)link('← '+(list[at-1].label || String(list[at-1].id).padStart(2,'0'))+' '+list[at-1].title,list[at-1].href);
   link('ラボ一覧','index.html');
   if(at>=0 && at<list.length-1)link((list[at+1].label || String(list[at+1].id).padStart(2,'0'))+' '+list[at+1].title+' →',list[at+1].href);
-  else if(current==='arrhythmia')link('35 ネフロンとNa・水（予定） →','index.html#roadmap');
+  else if(current==='edema')link('40 気道抵抗と気管支径（予定） →','index.html#roadmap');
+  else if(current==='arrhythmia')link('36 ネフロンとNa⁺・水 →','pharmacology_lab_36_nephron.html');
   else if(['raas','antihypertensives','heart-failure','heart-failure-drugs','ischemic-heart-disease'].includes(current))link('次の循環LAB（予定）・一覧へ →','index.html#roadmap');
   else link(current==='18'?'全LABの一覧へ →':current>=15?'自律神経編の一覧・次のLAB →':'基礎編のまとめ・次のLAB →','index.html#next-labs');
   document.querySelector('.wrap').append(nav);
