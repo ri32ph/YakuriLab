@@ -373,25 +373,29 @@
       "number": 36,
       "title": "ネフロンとNa・水",
       "question": "Naと水はどこで再吸収される？",
-      "status": "planned"
+      "status": "ready",
+      "labId": "nephron"
     },
     {
       "number": 37,
       "title": "利尿薬の作用部位",
       "question": "ネフロンのどこに作用するかを比べる。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "diuretic-sites"
     },
     {
       "number": 38,
       "title": "利尿薬とK・Na",
       "question": "利尿すると電解質はどう変わる？",
-      "status": "planned"
+      "status": "ready",
+      "labId": "electrolytes"
     },
     {
       "number": 39,
       "title": "体液量と浮腫",
       "question": "Na・水・静水圧と浮腫の関係を見る。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "edema"
     },
     {
       "number": 40,
