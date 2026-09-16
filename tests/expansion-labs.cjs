@@ -11,5 +11,5 @@ for(const [a,b] of [[0,0],[50,0],[50,80],[100,100]]){const s=M.beta3(a,b);assert
 assert(M.beta3(80,0).relaxation>M.beta3(20,0).relaxation);assert(M.beta3(60,80).relaxation<M.beta3(60,0).relaxation);assert(M.beta3(60,0).capacity>1);
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'assets/js/catalog.js'),'utf8').split('=')[1].trim().replace(/;$/,''));
 for(const id of ['pk-summary','dose-response','membrane-ions','partial-agonist','drug-targets','beta3']){const lab=catalog.find(x=>x.id===id);assert(lab);assert(fs.existsSync(path.join(root,lab.href)))}
-assert.equal(catalog.length,31);assert.deepEqual(catalog.map(x=>x.numbers[0]),[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32]);
+assert.equal(catalog.length,32);assert.deepEqual(catalog.map(x=>x.numbers[0]),[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33]);
 console.log('PASS: LAB 10/12/13/19/20/25 models, six files, and expanded navigation catalog.');
