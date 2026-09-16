@@ -18,107 +18,107 @@
     },
     {
       "roman": "Ⅲ",
-      "title": "薬の量が変わらなくても作用は変わる？",
-      "subtitle": "薬力学 PD",
+      "title": "薬の量と作用をどう考える？",
+      "subtitle": "薬用量の推算と薬力学",
       "icon": "Combine",
       "start": 11,
-      "end": 12
+      "end": 13
     },
     {
       "roman": "Ⅳ",
       "title": "神経はどうやって情報を伝える？",
       "subtitle": "神経の電気信号と伝達",
       "icon": "Activity",
-      "start": 13,
-      "end": 16
+      "start": 14,
+      "end": 17
     },
     {
       "roman": "Ⅴ",
       "title": "薬はどうやって細胞に作用する？",
       "subtitle": "受容体・標的",
       "icon": "ToggleRight",
-      "start": 17,
-      "end": 20
+      "start": 18,
+      "end": 21
     },
     {
       "roman": "Ⅵ",
       "title": "自律神経を全身で見る",
       "subtitle": "全身から臓器へ",
       "icon": "Network",
-      "start": 21,
-      "end": 21
+      "start": 22,
+      "end": 22
     },
     {
       "roman": "Ⅶ",
       "title": "自律神経の受容体へズームする",
       "subtitle": "臓器から受容体へ",
       "icon": "GitBranch",
-      "start": 22,
-      "end": 27
+      "start": 23,
+      "end": 28
     },
     {
       "roman": "Ⅷ",
       "title": "循環を動かしてみる",
       "subtitle": "血圧・循環と薬",
       "icon": "HeartPulse",
-      "start": 28,
-      "end": 34
+      "start": 29,
+      "end": 35
     },
     {
       "roman": "Ⅸ",
       "title": "腎臓と体液を動かしてみる",
       "subtitle": "Na・水と薬",
       "icon": "Droplets",
-      "start": 35,
-      "end": 38
+      "start": 36,
+      "end": 39
     },
     {
       "roman": "Ⅹ",
       "title": "呼吸を動かしてみる",
       "subtitle": "気道・呼吸と薬",
       "icon": "Wind",
-      "start": 39,
-      "end": 44
+      "start": 40,
+      "end": 45
     },
     {
       "roman": "Ⅺ",
       "title": "糖代謝を動かしてみる",
       "subtitle": "血糖の調節と薬",
       "icon": "Network",
-      "start": 45,
-      "end": 49
+      "start": 46,
+      "end": 50
     },
     {
       "roman": "Ⅻ",
       "title": "炎症と薬",
       "subtitle": "炎症のしくみと薬",
       "icon": "CircleMinus",
-      "start": 50,
-      "end": 54
+      "start": 51,
+      "end": 55
     },
     {
       "roman": "XIII",
       "title": "感染症と抗菌薬",
       "subtitle": "細菌の増殖と薬",
       "icon": "CirclePlus",
-      "start": 55,
-      "end": 58
+      "start": 56,
+      "end": 59
     },
     {
       "roman": "XIV",
       "title": "血栓と止血",
       "subtitle": "血栓形成と薬",
       "icon": "Droplets",
-      "start": 59,
-      "end": 63
+      "start": 60,
+      "end": 64
     },
     {
       "roman": "XV",
       "title": "中枢神経へ",
       "subtitle": "神経伝達から薬へ",
       "icon": "Brain",
-      "start": 64,
-      "end": 70
+      "start": 65,
+      "end": 71
     }
   ],
   "items": [
@@ -194,111 +194,118 @@
     },
     {
       "number": 11,
+      "title": "薬用量をどう見積もる？",
+      "question": "同じ子どもでも、年齢・体重・体表面積で推算値はどう変わる？",
+      "status": "ready",
+      "labId": "pediatric-dose"
+    },
+    {
+      "number": 12,
       "title": "薬力学的相互作用",
       "question": "血中濃度が変わらなくても、作用が重なるとどうなる？",
       "status": "ready",
       "labId": 10
     },
     {
-      "number": 12,
+      "number": 13,
       "title": "用量と反応",
       "question": "薬を増やせば、作用はずっと強くなる？",
       "status": "ready",
       "labId": "dose-response"
     },
     {
-      "number": 13,
+      "number": 14,
       "title": "細胞膜とNa⁺・K⁺",
       "question": "なぜ電気を作れる？",
       "status": "ready",
       "labId": "membrane-ions"
     },
     {
-      "number": 14,
+      "number": 15,
       "title": "Na⁺流入と脱分極",
       "question": "刺激すると膜に何が起こる？",
       "status": "ready",
       "labId": "depolarization"
     },
     {
-      "number": 15,
+      "number": 16,
       "title": "活動電位と伝導",
       "question": "なぜその変化が隣へ進む？",
       "status": "ready",
       "labId": 11
     },
     {
-      "number": 16,
+      "number": 17,
       "title": "シナプス伝達",
       "question": "神経の端まで来たら、どうやって次の細胞へ？",
       "status": "ready",
       "labId": 12
     },
     {
-      "number": 17,
+      "number": 18,
       "title": "作動薬（アゴニスト）",
       "question": "受容体のスイッチをONにする。",
       "status": "ready",
       "labId": 13
     },
     {
-      "number": 18,
+      "number": 19,
       "title": "拮抗薬（アンタゴニスト）",
       "question": "受容体に結合するがONにしない。",
       "status": "ready",
       "labId": 14
     },
     {
-      "number": 19,
+      "number": 20,
       "title": "完全作動薬と部分作動薬",
       "question": "同じ受容体を刺激しても最大反応が違うのはなぜ？",
       "status": "ready",
       "labId": "partial-agonist"
     },
     {
-      "number": 20,
+      "number": 21,
       "title": "薬の主な作用標的",
       "question": "受容体・イオンチャネル・酵素・トランスポーターを見渡す。",
       "status": "ready",
       "labId": "drug-targets"
     },
     {
-      "number": 21,
+      "number": 22,
       "title": "自律神経と全身",
       "question": "交感・副交感の刺激と抑制で、全身はどう変わる？",
       "status": "ready",
       "labId": "autonomic-map"
     },
     {
-      "number": 22,
+      "number": 23,
       "title": "α1受容体 ― 血管",
       "question": "受容体の刺激で血管はどう変わる？",
       "status": "ready",
       "labId": 15
     },
     {
-      "number": 23,
+      "number": 24,
       "title": "β1受容体 ― 心臓",
       "question": "心拍の速さと収縮力はどう変わる？",
       "status": "ready",
       "labId": 16
     },
     {
-      "number": 24,
+      "number": 25,
       "title": "β2受容体 ― 気管支",
       "question": "気管支平滑筋の弛緩を観察する。",
       "status": "ready",
       "labId": 17
     },
     {
-      "number": 25,
+      "number": 26,
       "title": "β3受容体 ― 膀胱・脂肪組織",
       "question": "排尿筋の弛緩など、β3の作用を学ぶ。",
       "status": "ready",
       "labId": "beta3"
     },
     {
-      "number": 26,
+      "number": 27,
       "title": "M2受容体 ― 心臓",
       "question": "副交感神経による心拍の調節を学ぶ。",
       "status": "shared",
@@ -306,7 +313,7 @@
       "note": "現在は「副交感神経とムスカリン受容体」の共通教材。M2・M3別の拡充は今後の予定です。"
     },
     {
-      "number": 27,
+      "number": 28,
       "title": "M3受容体 ― 腺・平滑筋",
       "question": "唾液・消化管・気管支・膀胱の変化を学ぶ。",
       "status": "shared",
@@ -314,265 +321,266 @@
       "note": "現在は「副交感神経とムスカリン受容体」の共通教材。M2・M3別の拡充は今後の予定です。"
     },
     {
-      "number": 28,
+      "number": 29,
       "title": "血圧を決めるもの",
       "question": "心拍数・一回拍出量・血管抵抗を変える。",
       "status": "ready",
       "labId": "blood-pressure"
     },
     {
-      "number": 29,
+      "number": 30,
       "title": "RAAS",
       "question": "循環血液量が減ったら、腎臓はどう反応する？",
       "status": "ready",
       "labId": "raas"
     },
     {
-      "number": 30,
+      "number": 31,
       "title": "降圧薬",
       "question": "血圧を決めるしくみの「どこを変える薬か」で比較する。",
       "status": "ready",
       "labId": "antihypertensives"
     },
     {
-      "number": 31,
+      "number": 32,
       "title": "心不全",
       "question": "心機能・神経・ホルモン・体液のつながりを学ぶ。",
       "status": "ready",
       "labId": "heart-failure"
     },
     {
-      "number": 32,
+      "number": 33,
       "title": "心不全治療薬",
       "question": "薬が悪循環のどこに作用するかを考える。",
       "status": "ready",
       "labId": "heart-failure-drugs"
     },
     {
-      "number": 33,
+      "number": 34,
       "title": "虚血性心疾患",
       "question": "心筋の酸素需要と供給を比べる。",
       "status": "ready",
       "labId": "ischemic-heart-disease"
     },
     {
-      "number": 34,
+      "number": 35,
       "title": "不整脈",
       "question": "活動電位・刺激伝導系と薬をつなげる。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "arrhythmia"
     },
     {
-      "number": 35,
+      "number": 36,
       "title": "ネフロンとNa・水",
       "question": "Naと水はどこで再吸収される？",
       "status": "planned"
     },
     {
-      "number": 36,
+      "number": 37,
       "title": "利尿薬の作用部位",
       "question": "ネフロンのどこに作用するかを比べる。",
       "status": "planned"
     },
     {
-      "number": 37,
+      "number": 38,
       "title": "利尿薬とK・Na",
       "question": "利尿すると電解質はどう変わる？",
       "status": "planned"
     },
     {
-      "number": 38,
+      "number": 39,
       "title": "体液量と浮腫",
       "question": "Na・水・静水圧と浮腫の関係を見る。",
       "status": "planned"
     },
     {
-      "number": 39,
+      "number": 40,
       "title": "気道抵抗と気管支径",
       "question": "少し狭くなるだけで呼吸はどう変わる？",
       "status": "planned"
     },
     {
-      "number": 40,
+      "number": 41,
       "title": "気管支拡張薬",
       "question": "β2刺激と抗コリン作用を比較する。",
       "status": "planned"
     },
     {
-      "number": 41,
+      "number": 42,
       "title": "気道炎症とICS",
       "question": "気管支拡張と抗炎症は何が違う？",
       "status": "planned"
     },
     {
-      "number": 42,
+      "number": 43,
       "title": "吸入薬とデバイス",
       "question": "吸気流速や手技で肺への到達量はどう変わる？",
       "status": "planned"
     },
     {
-      "number": 43,
+      "number": 44,
       "title": "喘息",
       "question": "気道炎症と気流制限を学ぶ。",
       "status": "planned"
     },
     {
-      "number": 44,
+      "number": 45,
       "title": "COPD",
       "question": "気流制限・過膨張・呼吸困難をつなげる。",
       "status": "planned"
     },
     {
-      "number": 45,
+      "number": 46,
       "title": "インスリン分泌",
       "question": "血糖の変化とβ細胞の反応を見る。",
       "status": "planned"
     },
     {
-      "number": 46,
+      "number": 47,
       "title": "インスリン作用",
       "question": "受容体から糖の取り込みまでを追う。",
       "status": "planned"
     },
     {
-      "number": 47,
+      "number": 48,
       "title": "インスリンとK",
       "question": "Kの細胞内移動を観察する。",
       "status": "planned"
     },
     {
-      "number": 48,
+      "number": 49,
       "title": "糖尿病治療薬の作用点",
       "question": "膵臓・肝臓・筋・腎・腸を人体図で見る。",
       "status": "planned"
     },
     {
-      "number": 49,
+      "number": 50,
       "title": "SGLT2阻害薬",
       "question": "腎臓での糖再吸収と尿糖の関係を見る。",
       "status": "planned"
     },
     {
-      "number": 50,
+      "number": 51,
       "title": "炎症とプロスタグランジン",
       "question": "炎症に関わる物質の働きを追う。",
       "status": "planned"
     },
     {
-      "number": 51,
+      "number": 52,
       "title": "NSAIDs",
       "question": "COXを介した作用と胃・腎への影響を学ぶ。",
       "status": "planned"
     },
     {
-      "number": 52,
+      "number": 53,
       "title": "アセトアミノフェン",
       "question": "NSAIDsとの違いを比較する。",
       "status": "planned"
     },
     {
-      "number": 53,
+      "number": 54,
       "title": "副腎皮質ステロイド",
       "question": "受容体から遺伝子発現の調節へ。",
       "status": "planned"
     },
     {
-      "number": 54,
+      "number": 55,
       "title": "ステロイドの効果と副作用",
       "question": "用量と使用期間による影響を学ぶ。",
       "status": "planned"
     },
     {
-      "number": 55,
+      "number": 56,
       "title": "細菌が増える",
       "question": "まず薬を使わない状態で増殖を見る。",
       "status": "planned"
     },
     {
-      "number": 56,
+      "number": 57,
       "title": "抗菌薬とMIC",
       "question": "濃度とMICの関係を観察する。",
       "status": "planned"
     },
     {
-      "number": 57,
+      "number": 58,
       "title": "時間依存性と濃度依存性",
       "question": "同じ総投与量で投与方法を変えてみる。",
       "status": "planned"
     },
     {
-      "number": 58,
+      "number": 59,
       "title": "耐性菌が選択される",
       "question": "感受性菌と耐性菌が混在した状態で考える。",
       "status": "planned"
     },
     {
-      "number": 59,
+      "number": 60,
       "title": "血小板による一次止血",
       "question": "傷ついた血管に血小板が集まる過程を見る。",
       "status": "planned"
     },
     {
-      "number": 60,
+      "number": 61,
       "title": "凝固カスケード",
       "question": "凝固反応のつながりを追う。",
       "status": "planned"
     },
     {
-      "number": 61,
+      "number": 62,
       "title": "抗血小板薬",
       "question": "血小板の働きを変える作用点を見る。",
       "status": "planned"
     },
     {
-      "number": 62,
+      "number": 63,
       "title": "抗凝固薬",
       "question": "凝固反応のどこに作用するかを見る。",
       "status": "planned"
     },
     {
-      "number": 63,
+      "number": 64,
       "title": "血栓予防と出血のバランス",
       "question": "効果と出血リスクの両面を考える。",
       "status": "planned"
     },
     {
-      "number": 64,
+      "number": 65,
       "title": "GABAと興奮性／抑制性神経伝達",
       "question": "神経の興奮を促す・抑える伝達を比べる。",
       "status": "planned"
     },
     {
-      "number": 65,
+      "number": 66,
       "title": "睡眠薬",
       "question": "神経伝達と睡眠に関わる薬をつなげる。",
       "status": "planned"
     },
     {
-      "number": 66,
+      "number": 67,
       "title": "てんかんと神経興奮",
       "question": "神経の興奮が広がる様子を見る。",
       "status": "planned"
     },
     {
-      "number": 67,
+      "number": 68,
       "title": "抗てんかん薬",
       "question": "興奮の発生・伝達のどこに作用するかを見る。",
       "status": "planned"
     },
     {
-      "number": 68,
+      "number": 69,
       "title": "ドパミンとパーキンソン病",
       "question": "神経伝達の変化と薬の作用点を学ぶ。",
       "status": "planned"
     },
     {
-      "number": 69,
+      "number": 70,
       "title": "セロトニン・ノルアドレナリンと抗うつ薬",
       "question": "放出・受容体・再取り込み・分解から考える。",
       "status": "planned"
     },
     {
-      "number": 70,
+      "number": 71,
       "title": "ドパミンと抗精神病薬",
       "question": "神経伝達と受容体への作用を学ぶ。",
       "status": "planned"
