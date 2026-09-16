@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),ctx={window:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'assets/js/pediatric-dose-model.js'),'utf8'),ctx);const M=ctx.window.PEDIATRIC_DOSE_MODEL;
+const close=(actual,expected,tolerance=1e-9)=>assert(Math.abs(actual-expected)<tolerance,`${actual} != ${expected}`);
+close(M.youngDose(6,500),500/3);close(M.clarkDose(20,500),(20/0.453592)/150*500);close(M.augsberger1Dose(20,500),200);close(M.augsberger2Dose(6,500),220);
+close(M.mostellerBSA(115,20),Math.sqrt(115*20/3600));close(M.duboisBSA(115,20),0.007184*20**.425*115**.725);assert(M.fujimotoBSA(.5,70,8)>0);assert(M.fujimotoBSA(3,95,15)>0);assert(M.fujimotoBSA(6,115,20)>0);
+const base=M.calculate({ageYears:6,extraMonths:0,weightKg:20,heightCm:115,adultDose:500});assert.equal(base.basic.length,6);assert.equal(base.advanced.length,3);assert.equal(base.basic.find(x=>x.id==='nakayama').bracket,'6歳以上');assert.equal(base.basic.find(x=>x.id==='harnack').bracket,'3歳以上');
+const before=M.vonHarnack(89,500),after=M.vonHarnack(90,500);assert.equal(before.ratio,1/3);assert.equal(after.ratio,2/3);assert.equal(M.nakayama(2,500).dose,null);
+const capped=M.mgPerKgDaily(50,10,400,3);assert.equal(capped.calculated,500);assert.equal(capped.daily,400);assert.equal(capped.capped,true);close(capped.perDose,400/3);
+const sameAgeA=M.calculate({ageYears:6,extraMonths:0,weightKg:15,heightCm:105,adultDose:500}),sameAgeB=M.calculate({ageYears:6,extraMonths:0,weightKg:30,heightCm:130,adultDose:500});assert.equal(sameAgeA.basic[0].dose,sameAgeB.basic[0].dose);assert.notEqual(sameAgeA.basic[1].dose,sameAgeB.basic[1].dose);assert.notEqual(sameAgeA.basic[3].dose,sameAgeB.basic[3].dose);
+const catalog=JSON.parse(fs.readFileSync(path.join(root,'assets/js/catalog.js'),'utf8').split('=')[1].trim().replace(/;$/,''));const lab=catalog.find(x=>x.id==='pediatric-dose');assert(lab);assert.equal(lab.label,'11');assert(fs.existsSync(path.join(root,lab.href)));assert.equal(catalog[catalog.indexOf(lab)-1].label,'10');assert.equal(catalog[catalog.indexOf(lab)+1].label,'12');
+console.log('PASS: LAB 11 pediatric dose formulas, BSA methods, step tables, mg/kg maximum, comparisons and navigation.');

@@ -1,5 +1,15 @@
 # 検証結果
 
+## LAB 11「薬用量をどう見積もる？」追加
+
+- Young、Clark、Augsberger I・II、Crawford、Fried、Lenartを独立関数として検証。
+- Mosteller、Du Bois、藤本のBSA式が正の有限値を返し、Crawford式へ選択値が渡ることを検証。
+- von Harnack・中山の年齢区分は段階的に切り替わり、区分間を補間しないことを境界値で確認。
+- 10 mg/kg/日の架空例は50 kgで計算値500 mg、最大量適用後400 mg、3回分服では約133.3 mg/回となることを確認。
+- 同年齢・異なる体格では年齢式が一致し、体重式・BSA式が変化することを確認。
+- 全71テーマの連続性、34教材のカタログ、LAB 11の前後リンク、各ページの表示番号を確認。
+- ローカルHTMLの画面表示はブラウザURLポリシーで遮断されたため、実ブラウザでの目視確認は未実施。HTML内の54個のDOM参照、CSS/JS読込、必須の安全表示は静的検証済み。
+
 実施日：2026-09-15。Google Chrome（Playwright、一時プロファイル）でローカルHTMLを開いて検証。
 
 - 全12 HTML（トップページの互換名を含む）：1440px・390px・320px幅で横方向のはみ出しなし。
@@ -152,3 +162,15 @@
 - `models.cjs` は旧教材用のPlaywrightテスト。最初の一括実行で依存パス未指定のため起動しなかったので、上記の各教材用テストで回帰を確認しました。旧一括ブラウザテストの全件成功を意味しません。
 - 医学内容は教育用の相対モデル。臨床的な予測妥当性の検証、公開サイトへの反映は対象外です。
 - 最終拡大画像：`ischemia-desktop-main.png` / `ischemia-mobile-observe.png` / `ischemia-history.png`。グラフの未記録領域が空白であることと、条件変更前の線が残ることを目視確認。動きを減らす設定で明示的に再生できること、ローカルリンク・生成された2つのトップページの一致も確認。
+
+## 2026-09-16｜LAB 34 不整脈
+
+- `rhythm.cjs`：洞結節→心房→AV→心室の順序、AVでの待ち、電気に遅れる心房／心室収縮、刺激頻度・PR方向、一部伝導途絶、異所性興奮、AFのP波不在と不規則な心室間隔、VT／VF／旋回の独立モデル、心室筋／洞結節の異なる活動電位、Na／β／K／非DHP-Caの作用差、速い心拍での充満・SV低下方向、操作端点：PASS。
+- `rhythm-browser.cjs`：Chrome、1440 / 1280 / 390 / 320pxで同期表示・設定変更・一時停止／再開・コマ送り・過去を保つ波形追記・48での終了／リセット・細胞切替・薬選択・AV途絶・異所性刺激・各発展モード・初期停止／動きを減らす設定・33→34ナビゲーション：PASS。JavaScript例外、重複ID、ページ横はみ出しなし。
+- 最終のPC主要部分下端：約894px（1440px／1280px幅、高さ900px、正常モード）。800px以下は1列、ECGは内部横スクロール。拡張された発展図は必要に応じて縦に延びます。
+- 目視画像：`rhythm-1440.png` / `rhythm-1280.png` / `rhythm-390.png` / `rhythm-320.png`、観察部分 `rhythm-observe-*.png`。発展：`rhythm-af.png` / `rhythm-reentry.png` / `rhythm-vf.png`。活動電位：`rhythm-node-ap.png` / `rhythm-ventricle-ap.png`。
+- `CARDIAC_ELECTRICAL_VIEW`を同じページに2つマウントし、状態が独立していることを実ブラウザで確認。
+- 共有した `CORONARY_HEART.outline` に対する回帰：`ischemia-browser.cjs` 全項目PASS（4幅、薬・時間記録・プリセット・動き・ナビゲーション）。33のAPIと形状を維持。
+- 既存＋新規の非ブラウザ16スクリプト：intro-models / intro-controls / neural / alpha1 / autonomic / autonomic-map / blood-pressure / expansion-labs / expansion-motion / heart-motion / raas / antihypertensive / heart-failure / hf-treatment / ischemia / rhythm：PASS。
+- ローカルのページ／アセットリンクとカタログ・目次の参照を確認。34は利用可能、35は予定。公開サイトへのデプロイは実施していません。
+- ECG・膜電位・時間・血行動態の臨床的妥当性を検証したものではなく、教育用モデルの整合性・操作・表示を確認しています。
