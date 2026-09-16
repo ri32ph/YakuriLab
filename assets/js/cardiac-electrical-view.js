@@ -30,7 +30,7 @@
   q('[data-stop]').setAttribute('visibility',active==='blocked'?'visible':'hidden');q('[data-ectopic]').setAttribute('visibility',active==='ectopic'?'visible':'hidden');
   for(const [selector,on]of [['[data-atrial-chaos]',af],['[data-vent-chaos]',vf]]){const g=q(selector);g.style.display=on&&started?'':'none';[...g.children].forEach((e,i)=>e.style.opacity=.2+.8*Math.abs(Math.sin(s.t*(7+i)+i)));}
   q('[data-a-state]').textContent=af?'心房：有効な収縮なし':s.atrialContract&&started?'心房：電気のあとに収縮':'心房：弛緩';q('[data-v-state]').textContent=vf?'心室：有効な拍出なし':s.ventricularContract&&started?'心室：電気のあとに収縮':'心室：弛緩';
-  q('[data-stage]').textContent=!started?'STARTで、洞結節からの伝導を見よう。':s.message;
+  q('[data-stage]').textContent=!started?'STARTで、洞結節からの伝導を見よう。':({normal:'',af:'AFモデル｜',vt:'VTモデル｜',vf:'VFモデル｜',reentry:'旋回モデル｜'}[s.p.mode]+s.message);
   q('[data-circuit]').hidden=s.p.mode!=='reentry';if(s.p.mode==='reentry'){const a=-Math.PI/2-s.reentryPhase*Math.PI*2;q('[data-loop-dot]').setAttribute('cx',174+104*Math.cos(a));q('[data-loop-dot]').setAttribute('cy',50+38*Math.sin(a));}
  }};
  }

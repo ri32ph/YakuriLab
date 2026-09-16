@@ -90,37 +90,47 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_10_pk_interactions.html"
   },
   {
-    "id": 10,
-    "title": "薬力学的相互作用",
-    "href": "pharmacology_lab_10_pharmacodynamic_interaction.html",
+    "id": "pediatric-dose",
     "label": "11",
     "numbers": [
       11
+    ],
+    "title": "薬用量をどう見積もる？",
+    "href": "pharmacology_lab_11_pediatric_dose.html",
+    "key": "pediatric-dose"
+  },
+  {
+    "id": 10,
+    "title": "薬力学的相互作用",
+    "href": "pharmacology_lab_10_pharmacodynamic_interaction.html",
+    "label": "12",
+    "numbers": [
+      12
     ]
   },
   {
     "id": "dose-response",
-    "label": "12",
+    "label": "13",
     "numbers": [
-      12
+      13
     ],
     "title": "用量と反応",
     "href": "pharmacology_lab_12_dose_response.html"
   },
   {
     "id": "membrane-ions",
-    "label": "13",
+    "label": "14",
     "numbers": [
-      13
+      14
     ],
     "title": "細胞膜とNa⁺・K⁺",
     "href": "pharmacology_lab_13_membrane_ions.html"
   },
   {
     "id": "depolarization",
-    "label": "14",
+    "label": "15",
     "numbers": [
-      14
+      15
     ],
     "title": "Na⁺流入と脱分極",
     "href": "pharmacology_lab_14_depolarization.html"
@@ -129,63 +139,63 @@ window.LAB_CATALOG = [
     "id": 11,
     "title": "活動電位と伝導",
     "href": "pharmacology_lab_11_action_potential.html",
-    "label": "15",
-    "numbers": [
-      15
-    ]
-  },
-  {
-    "id": 12,
-    "title": "シナプスでの伝達",
-    "href": "pharmacology_lab_12_synapse.html",
     "label": "16",
     "numbers": [
       16
     ]
   },
   {
-    "id": 13,
-    "title": "作動薬（アゴニスト）",
-    "href": "pharmacology_lab_13_agonist.html",
+    "id": 12,
+    "title": "シナプスでの伝達",
+    "href": "pharmacology_lab_12_synapse.html",
     "label": "17",
     "numbers": [
       17
     ]
   },
   {
-    "id": 14,
-    "title": "拮抗薬（アンタゴニスト）",
-    "href": "pharmacology_lab_14_antagonist.html",
+    "id": 13,
+    "title": "作動薬（アゴニスト）",
+    "href": "pharmacology_lab_13_agonist.html",
     "label": "18",
     "numbers": [
       18
     ]
   },
   {
-    "id": "partial-agonist",
+    "id": 14,
+    "title": "拮抗薬（アンタゴニスト）",
+    "href": "pharmacology_lab_14_antagonist.html",
     "label": "19",
     "numbers": [
       19
+    ]
+  },
+  {
+    "id": "partial-agonist",
+    "label": "20",
+    "numbers": [
+      20
     ],
     "title": "完全作動薬と部分作動薬",
     "href": "pharmacology_lab_19_partial_agonist.html"
   },
   {
     "id": "drug-targets",
-    "label": "20",
+    "label": "21",
     "numbers": [
-      20
+      21
     ],
     "title": "薬の主な作用標的",
     "href": "pharmacology_lab_20_drug_targets.html"
   },
   {
     "id": "autonomic-map",
-    "label": "21",
+    "label": "22",
     "title": "自律神経シミュレーター",
     "href": "pharmacology_lab_autonomic_map.html",
     "numbers": [
-      21
+      22
     ]
   },
   {
@@ -193,9 +203,9 @@ window.LAB_CATALOG = [
     "title": "α1受容体と血管",
     "href": "pharmacology_lab_15_alpha1.html",
     "key": "alpha1",
-    "label": "22",
+    "label": "23",
     "numbers": [
-      22
+      23
     ]
   },
   {
@@ -203,9 +213,9 @@ window.LAB_CATALOG = [
     "title": "β1受容体と心臓",
     "href": "pharmacology_lab_16_beta1.html",
     "key": "beta1",
-    "label": "23",
+    "label": "24",
     "numbers": [
-      23
+      24
     ]
   },
   {
@@ -213,16 +223,16 @@ window.LAB_CATALOG = [
     "title": "β2受容体と気管支",
     "href": "pharmacology_lab_17_beta2.html",
     "key": "beta2",
-    "label": "24",
+    "label": "25",
     "numbers": [
-      24
+      25
     ]
   },
   {
     "id": "beta3",
-    "label": "25",
+    "label": "26",
     "numbers": [
-      25
+      26
     ],
     "title": "β3受容体 ― 膀胱・脂肪組織",
     "href": "pharmacology_lab_25_beta3.html",
@@ -233,17 +243,17 @@ window.LAB_CATALOG = [
     "title": "副交感神経とムスカリン受容体",
     "href": "pharmacology_lab_18_parasympathetic.html",
     "key": "muscarinic",
-    "label": "26・27",
+    "label": "27・28",
     "numbers": [
-      26,
-      27
+      27,
+      28
     ]
   },
   {
     "id": "blood-pressure",
-    "label": "28",
+    "label": "29",
     "numbers": [
-      28
+      29
     ],
     "title": "血圧を決めるもの",
     "href": "pharmacology_lab_28_blood_pressure.html",
@@ -251,9 +261,9 @@ window.LAB_CATALOG = [
   },
   {
     "id": "raas",
-    "label": "29",
+    "label": "30",
     "numbers": [
-      29
+      30
     ],
     "title": "RAAS",
     "href": "pharmacology_lab_29_raas.html",
@@ -261,9 +271,9 @@ window.LAB_CATALOG = [
   },
   {
     "id": "antihypertensives",
-    "label": "30",
+    "label": "31",
     "numbers": [
-      30
+      31
     ],
     "title": "降圧薬",
     "href": "pharmacology_lab_30_antihypertensives.html",
@@ -271,9 +281,9 @@ window.LAB_CATALOG = [
   },
   {
     "id": "heart-failure",
-    "label": "31",
+    "label": "32",
     "numbers": [
-      31
+      32
     ],
     "title": "心不全",
     "href": "pharmacology_lab_31_heart_failure.html",
@@ -281,9 +291,9 @@ window.LAB_CATALOG = [
   },
   {
     "id": "heart-failure-drugs",
-    "label": "32",
+    "label": "33",
     "numbers": [
-      32
+      33
     ],
     "title": "心不全治療薬",
     "href": "pharmacology_lab_32_heart_failure_drugs.html",
@@ -291,9 +301,9 @@ window.LAB_CATALOG = [
   },
   {
     "id": "ischemic-heart-disease",
-    "label": "33",
+    "label": "34",
     "numbers": [
-      33
+      34
     ],
     "title": "虚血性心疾患",
     "href": "pharmacology_lab_33_ischemic_heart_disease.html",
@@ -301,9 +311,9 @@ window.LAB_CATALOG = [
   },
   {
     "id": "arrhythmia",
-    "label": "34",
+    "label": "35",
     "numbers": [
-      34
+      35
     ],
     "title": "不整脈",
     "href": "pharmacology_lab_34_arrhythmia.html",

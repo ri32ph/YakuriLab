@@ -37,7 +37,7 @@
   }return y;
  }
  function circulation(beats,t,p){
-  if(p.mode==='vf')return {hr:'測定対象外',fill:'有効な充満・拍出なし',sv:'有効な拍出なし',co:'著しく低下する方向',rate:0};
+  if(p.mode==='vf')return {hr:'測定対象外',fill:'協調した収縮・有効な拍出なし',sv:'有効な拍出なし',co:'著しく低下する方向',rate:0};
   const times=beats.filter(b=>b.v!==null&&b.v<=t).map(b=>b.v).sort((a,b)=>a-b),intervals=times.slice(1).map((v,i)=>v-times[i]),rr=intervals.length?intervals.slice(-4).reduce((a,b)=>a+b)/Math.min(4,intervals.length):p.period;
   const rate=3.55/Math.max(.3,rr),filling=clamp(rr/2.6,.2,1),sv=filling*(p.mode==='af'?.8:p.mode==='vt'?.62:1),co=rate*sv;
   return {rate,hr:p.mode==='af'?'不規則':rate>1.15?'増加方向':rate<.85?'低下方向':'標準付近',fill:filling<.9?'拡張期短縮 → 低下方向':p.mode==='af'?'心房収縮の寄与↓':'保たれる方向',sv:sv<.9?'低下し得る':p.weak===2?'各拍と間隔による':'標準付近',co:p.mode!=='normal'||p.weak===2?'維持しにくい／変動し得る':rate>1.4?'HR増加だけでは増えない':co<.85?'低下し得る':'充満・SVにも左右される'};
