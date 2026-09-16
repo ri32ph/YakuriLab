@@ -39,10 +39,10 @@
 | 33 | 心不全治療薬 | 利用可 | [心不全治療薬](pharmacology_lab_32_heart_failure_drugs.html) |
 | 34 | 虚血性心疾患 | 利用可 | [虚血性心疾患](pharmacology_lab_33_ischemic_heart_disease.html) |
 | 35 | 不整脈 | 利用可 | [不整脈](pharmacology_lab_34_arrhythmia.html) |
-| 36 | ネフロンとNa・水 | 追加予定 | — |
-| 37 | 利尿薬の作用部位 | 追加予定 | — |
-| 38 | 利尿薬とK・Na | 追加予定 | — |
-| 39 | 体液量と浮腫 | 追加予定 | — |
+| 36 | ネフロンとNa・水 | 利用可 | [ネフロンとNa⁺・水](pharmacology_lab_36_nephron.html) |
+| 37 | 利尿薬の作用部位 | 利用可 | [利尿薬の作用部位](pharmacology_lab_37_diuretic_sites.html) |
+| 38 | 利尿薬とK・Na | 利用可 | [利尿薬とK⁺・Na⁺](pharmacology_lab_38_electrolytes.html) |
+| 39 | 体液量と浮腫 | 利用可 | [体液量と浮腫](pharmacology_lab_39_edema.html) |
 | 40 | 気道抵抗と気管支径 | 追加予定 | — |
 | 41 | 気管支拡張薬 | 追加予定 | — |
 | 42 | 気道炎症とICS | 追加予定 | — |
