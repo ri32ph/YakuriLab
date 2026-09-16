@@ -37,7 +37,7 @@
 | 31 | 心不全 | 利用可 | [心不全](pharmacology_lab_31_heart_failure.html) |
 | 32 | 心不全治療薬 | 利用可 | [心不全治療薬](pharmacology_lab_32_heart_failure_drugs.html) |
 | 33 | 虚血性心疾患 | 利用可 | [虚血性心疾患](pharmacology_lab_33_ischemic_heart_disease.html) |
-| 34 | 不整脈 | 追加予定 | — |
+| 34 | 不整脈 | 利用可 | [不整脈](pharmacology_lab_34_arrhythmia.html) |
 | 35 | ネフロンとNa・水 | 追加予定 | — |
 | 36 | 利尿薬の作用部位 | 追加予定 | — |
 | 37 | 利尿薬とK・Na | 追加予定 | — |

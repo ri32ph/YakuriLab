@@ -117,7 +117,7 @@ node tests/autonomic.cjs
 
 ## 全体目次の再編（70テーマ）
 
-現在のトップページはⅠ〜XVの新目次に沿っています。32本の教材を利用可能として案内し、未実装テーマは「予定」として区別しています。
+現在のトップページはⅠ〜XVの新目次に沿っています。33本の教材を利用可能として案内し、未実装テーマは「予定」として区別しています。
 
 - `data/curriculum.json`：章・新しい表示番号・問い・実装状態・既存教材の対応。`ready` は利用可、`shared` は共通教材、`planned` は追加予定。
 - `assets/js/catalog.js`：既存URLと内部IDを維持。`label` が新しい表示番号、`numbers` が対応テーマ番号。シミュレーションの `data-lab` は変更しないでください。
@@ -233,3 +233,18 @@ RAASの矢印は実効的な作用の方向であり、血中レニン・Ang II�
 - 32→33のリンク、カタログ、教材一覧、目次を更新。34は未実装のため予定一覧へ案内します。公開サイトへのデプロイは含みません。
 
 検証：`node tests/ischemia.cjs`。ブラウザ検証：`PLAYWRIGHT_PATH=（Playwrightのパス） node tests/ischemia-browser.cjs`。Chromeが必要です。
+
+### LAB 34｜不整脈
+
+- `pharmacology_lab_34_arrhythmia.html`：最初は正常洞調律のSTARTから開始。洞結節の生成速度・AV伝導速度、1回の心室異所性刺激、AV遅延／一部途絶を操作。発展欄でリエントリー・AF・VT・VFを別々に観察します。
+- `assets/js/rhythm-model.js`：`RHYTHM_MODEL.parameters(input)` と `create()`。エンジンは `reset(input)` / `step(dt,input)` / `snapshot()` / `ectopic()` を提供。各刺激の洞結節・心房・AV・心室への到達時刻と、その時点のパラメーターを保持し、ECG・電気点灯・遅れた機械的収縮を共通イベントから計算します。
+- 時間は引き伸ばした学習用の0〜48。固定ステップでサンプルを追記します。設定変更で過去を書き換えず、モード切替だけは記録を消して待機。背景タブで経過時間をまとめて再生しません。
+- `ventricularAP(age,drug)`：Na⁺立ち上がり・初期再分極・Ca²⁺を含むプラトー・K⁺再分極・静止を分離。`nodalAP(age,parameters)`：拡張期脱分極とCa²⁺主体の立ち上がりを持つ別モデル。薬の固定係数は臨床波形・効果量の予測ではありません。
+- `assets/js/cardiac-electrical-view.js`：`CARDIAC_ELECTRICAL_VIEW.mountHeart(container)` / `mountECG(container)` / `mountAP(container)`。全てコンテナ内にセレクターを限定。ECGだけは `append(snapshot)` と `reset()` で管理します。APの灰色線は1周期の参考線で、色線・現在点・イオン表示が心臓のイベントと同期します。
+- 33の `CORONARY_HEART.outline` を共有。既存の心臓外形を定数として公開しただけで、33の描画APIは維持。神経編の赤いNa⁺・黄色のCa²⁺・青いK⁺と、28のHR・SV・COの視覚言語を引き継ぎ、電気生理計算は神経・血圧モデルと混用しません。
+- `assets/js/arrhythmia.js`：ページ操作と同期描画。初期は常に待機し、STARTまたはコマ送りで進みます。動きを減らす設定でも自動再生しません。PCは36：64、800px以下は1列。狭い画面のECGは内部横スクロール。
+- `assets/css/arrhythmia.css`：34専用の表示。33→34と一覧・目次を更新。35は未実装のため予定の学習マップへ案内。
+- AFは規則的なP波がなく、AVを通る一部の刺激に対して不規則な心室興奮を生成します。AFの時刻列は教材用の決定的な不規則パターンです。VT・VF・旋回では薬効の予測を行わず薬選択を無効化。AFで結節への作用を重ねても洞調律に自動変換しません。
+- 一部AV途絶は2対1の通過例。補充調律や詳細な減衰伝導、全ての不応期特性は再現しません。ECG診断や患者の処方判断に使用できるモデルではありません。
+
+検証：`node tests/rhythm.cjs`、`PLAYWRIGHT_PATH=（Playwrightのパス） node tests/rhythm-browser.cjs`。Chromeが必要です。
