@@ -115,7 +115,8 @@ window.LAB_CATALOG = [
       13
     ],
     "title": "用量と反応",
-    "href": "pharmacology_lab_12_dose_response.html"
+    "href": "pharmacology_lab_12_dose_response.html",
+    "stableId": "yakuri.lab.dose-response"
   },
   {
     "id": "membrane-ions",
@@ -157,6 +158,7 @@ window.LAB_CATALOG = [
     "id": 13,
     "title": "作動薬（アゴニスト）",
     "href": "pharmacology_lab_13_agonist.html",
+    "stableId": "yakuri.lab.agonist",
     "label": "18",
     "numbers": [
       18
@@ -166,6 +168,7 @@ window.LAB_CATALOG = [
     "id": 14,
     "title": "拮抗薬（アンタゴニスト）",
     "href": "pharmacology_lab_14_antagonist.html",
+    "stableId": "yakuri.lab.antagonist",
     "label": "19",
     "numbers": [
       19
@@ -178,7 +181,8 @@ window.LAB_CATALOG = [
       20
     ],
     "title": "完全作動薬と部分作動薬",
-    "href": "pharmacology_lab_19_partial_agonist.html"
+    "href": "pharmacology_lab_19_partial_agonist.html",
+    "stableId": "yakuri.lab.partial-agonist"
   },
   {
     "id": "drug-targets",
@@ -187,13 +191,15 @@ window.LAB_CATALOG = [
       21
     ],
     "title": "薬の主な作用標的",
-    "href": "pharmacology_lab_20_drug_targets.html"
+    "href": "pharmacology_lab_20_drug_targets.html",
+    "stableId": "yakuri.lab.drug-targets"
   },
   {
     "id": "autonomic-map",
     "label": "22",
     "title": "自律神経シミュレーター",
     "href": "pharmacology_lab_autonomic_map.html",
+    "stableId": "yakuri.lab.autonomic-map",
     "numbers": [
       22
     ]
@@ -202,6 +208,7 @@ window.LAB_CATALOG = [
     "id": 15,
     "title": "α1受容体と血管",
     "href": "pharmacology_lab_15_alpha1.html",
+    "stableId": "yakuri.lab.receptor.alpha1",
     "key": "alpha1",
     "label": "23",
     "numbers": [
@@ -212,6 +219,7 @@ window.LAB_CATALOG = [
     "id": 16,
     "title": "β1受容体と心臓",
     "href": "pharmacology_lab_16_beta1.html",
+    "stableId": "yakuri.lab.receptor.beta1",
     "key": "beta1",
     "label": "24",
     "numbers": [
@@ -222,6 +230,7 @@ window.LAB_CATALOG = [
     "id": 17,
     "title": "β2受容体と気管支",
     "href": "pharmacology_lab_17_beta2.html",
+    "stableId": "yakuri.lab.receptor.beta2",
     "key": "beta2",
     "label": "25",
     "numbers": [
@@ -236,12 +245,14 @@ window.LAB_CATALOG = [
     ],
     "title": "β3受容体 ― 膀胱・脂肪組織",
     "href": "pharmacology_lab_25_beta3.html",
+    "stableId": "yakuri.lab.receptor.beta3",
     "key": "beta3"
   },
   {
     "id": 18,
     "title": "副交感神経とムスカリン受容体",
     "href": "pharmacology_lab_18_parasympathetic.html",
+    "stableId": "yakuri.lab.receptor.muscarinic",
     "key": "muscarinic",
     "label": "27・28",
     "numbers": [
@@ -257,6 +268,7 @@ window.LAB_CATALOG = [
     ],
     "title": "血圧を決めるもの",
     "href": "pharmacology_lab_28_blood_pressure.html",
+    "stableId": "yakuri.lab.blood-pressure",
     "key": "blood-pressure"
   },
   {
@@ -354,5 +366,14 @@ window.LAB_CATALOG = [
     "title": "体液量と浮腫",
     "href": "pharmacology_lab_39_edema.html",
     "key": "edema"
+  },
+  {
+    "id": "airway-resistance",
+    "label": "40",
+    "numbers": [40],
+    "title": "気道抵抗と気管支径",
+    "href": "pharmacology_lab_40_airway_resistance.html",
+    "stableId": "yakuri.lab.airway-resistance",
+    "key": "airway-resistance"
   }
 ];
