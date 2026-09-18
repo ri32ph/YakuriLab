@@ -1,0 +1,3 @@
+.smooth-muscle{box-shadow:inset 0 0 var(--muscle-shadow,9px) rgba(101,37,58,.55)}
+.mucosa{box-shadow:inset 0 0 var(--edema-shadow,8px) #d96c71}
+.mucus{width:var(--mucus-width,10px);height:var(--mucus-height,6px)}
