@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "python3 scripts/sync-notion-dictionary.py",
+  "buildCommand": "python3 scripts/sync-notion-dictionary.py || echo 'Notion sync unavailable; using committed static dictionary.'",
   "outputDirectory": "."
 }
