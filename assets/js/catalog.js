@@ -402,5 +402,14 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_43_inhaler_devices.html",
     "stableId": "yakuri.lab.inhaler-devices",
     "key": "inhaler-devices"
+  },
+  {
+    "id": "asthma",
+    "label": "44",
+    "numbers": [44],
+    "title": "喘息",
+    "href": "pharmacology_lab_44_asthma.html",
+    "stableId": "yakuri.lab.asthma",
+    "key": "asthma"
   }
 ];

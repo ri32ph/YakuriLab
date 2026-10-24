@@ -47,7 +47,7 @@
 | 41 | 気管支拡張薬 | 利用可 | [気管支拡張薬](pharmacology_lab_41_bronchodilators.html) |
 | 42 | 気道炎症とICS | 利用可 | [気道炎症とICS](pharmacology_lab_42_airway_inflammation_ics.html) |
 | 43 | 吸入薬とデバイス | 利用可 | [吸入薬とデバイス](pharmacology_lab_43_inhaler_devices.html) |
-| 44 | 喘息 | 追加予定 | — |
+| 44 | 喘息 | 利用可 | [喘息](pharmacology_lab_44_asthma.html) |
 | 45 | COPD | 追加予定 | — |
 | 46 | インスリン分泌 | 追加予定 | — |
 | 47 | インスリン作用 | 追加予定 | — |
