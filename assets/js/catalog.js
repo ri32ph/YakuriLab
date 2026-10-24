@@ -375,5 +375,14 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_40_airway_resistance.html",
     "stableId": "yakuri.lab.airway-resistance",
     "key": "airway-resistance"
+  },
+  {
+    "id": "bronchodilators",
+    "label": "41",
+    "numbers": [41],
+    "title": "気管支拡張薬",
+    "href": "pharmacology_lab_41_bronchodilators.html",
+    "stableId": "yakuri.lab.bronchodilators",
+    "key": "bronchodilators"
   }
 ];
