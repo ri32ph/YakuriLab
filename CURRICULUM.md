@@ -44,7 +44,7 @@
 | 38 | 利尿薬とK・Na | 利用可 | [利尿薬とK⁺・Na⁺](pharmacology_lab_38_electrolytes.html) |
 | 39 | 体液量と浮腫 | 利用可 | [体液量と浮腫](pharmacology_lab_39_edema.html) |
 | 40 | 気道抵抗と気管支径 | 利用可 | [気道抵抗と気管支径](pharmacology_lab_40_airway_resistance.html) |
-| 41 | 気管支拡張薬 | 追加予定 | — |
+| 41 | 気管支拡張薬 | 利用可 | [気管支拡張薬](pharmacology_lab_41_bronchodilators.html) |
 | 42 | 気道炎症とICS | 追加予定 | — |
 | 43 | 吸入薬とデバイス | 追加予定 | — |
 | 44 | 喘息 | 追加予定 | — |

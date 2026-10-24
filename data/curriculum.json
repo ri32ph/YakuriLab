@@ -408,7 +408,8 @@
       "number": 41,
       "title": "気管支拡張薬",
       "question": "β2刺激と抗コリン作用を比較する。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "bronchodilators"
     },
     {
       "number": 42,
