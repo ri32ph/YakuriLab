@@ -401,7 +401,8 @@
       "number": 40,
       "title": "気道抵抗と気管支径",
       "question": "少し狭くなるだけで呼吸はどう変わる？",
-      "status": "planned"
+      "status": "ready",
+      "labId": "airway-resistance"
     },
     {
       "number": 41,
