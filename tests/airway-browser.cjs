@@ -7,6 +7,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_PATH||'playwright'),assert=requi
     await page.setViewportSize({width,height:1000});await page.goto(url);
     assert.equal(await page.locator('#resistanceValue').textContent(),'1.00倍');
     assert.equal(await page.locator('[data-airway-preset]').count(),8);
+    assert.equal(await page.locator('#respiratoryRateOut').textContent(),'12回/分');
+    assert.equal(await page.locator('#minuteVentilation').textContent(),'6.0 L/分');
+    assert.equal(await page.locator('#alveolarVentilation').textContent(),'4.2 L/分');
+    assert.equal(await page.locator('[data-breathing-preset]').count(),4);
     await page.locator('#airwayRadius').evaluate(input=>{input.value=80;input.dispatchEvent(new Event('input',{bubbles:true}));});
     assert.equal(await page.locator('#resistanceValue').textContent(),'2.44倍');
     await page.locator('[data-airway-preset="half"]').click();assert.equal(await page.locator('#resistanceValue').textContent(),'16.0倍');
@@ -18,6 +22,9 @@ const {chromium}=require(process.env.PLAYWRIGHT_PATH||'playwright'),assert=requi
     const after=Number((await page.locator('#resistanceValue').textContent()).replace('倍',''));
     assert(after<before);assert.equal(await page.locator('#airwayView').evaluate(e=>getComputedStyle(e).getPropertyValue('--edema')),edema);assert.equal(await page.locator('#airwayView').evaluate(e=>getComputedStyle(e).getPropertyValue('--mucus')),mucus);
     await page.locator('[data-airway-preset="m3"]').click();const blocked=Number((await page.locator('#resistanceValue').textContent()).replace('倍',''));await page.locator('#m3Toggle').click();const unblocked=Number((await page.locator('#resistanceValue').textContent()).replace('倍',''));assert(unblocked>blocked);
+    await page.locator('[data-breathing-preset="d"]').click();assert.equal(await page.locator('#respiratoryRateOut').textContent(),'28回/分');assert((await page.locator('#breathingComparison').textContent()).includes('高い抵抗と短い呼気時間'));
+    await page.waitForTimeout(width===1440||width===390?2400:350);const history=await page.locator('#lungView [data-role="history"]').getAttribute('points');assert(history.split(' ').length>3);
+    await page.locator('#tidalVolume').evaluate(input=>{input.value=250;input.dispatchEvent(new Event('input',{bubbles:true}));});await page.locator('#respiratoryRate').evaluate(input=>{input.value=24;input.dispatchEvent(new Event('input',{bubbles:true}));});assert.equal(await page.locator('#minuteVentilation').textContent(),'6.0 L/分');assert.equal(await page.locator('#alveolarVentilation').textContent(),'2.4 L/分');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`horizontal overflow at ${width}`);
     assert.equal(await page.evaluate(()=>{const ids=[...document.querySelectorAll('[id]')].map(x=>x.id);return ids.length===new Set(ids).size}),true);
     if(width===1440||width===390)await page.locator('#experiment').screenshot({path:path.join(__dirname,`airway-${width}.png`)});
