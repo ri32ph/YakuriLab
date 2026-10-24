@@ -422,7 +422,8 @@
       "number": 43,
       "title": "吸入薬とデバイス",
       "question": "吸気流速や手技で肺への到達量はどう変わる？",
-      "status": "planned"
+      "status": "ready",
+      "labId": "inhaler-devices"
     },
     {
       "number": 44,

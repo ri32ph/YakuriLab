@@ -393,5 +393,14 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_42_airway_inflammation_ics.html",
     "stableId": "yakuri.lab.airway-inflammation",
     "key": "airway-inflammation"
+  },
+  {
+    "id": "inhaler-devices",
+    "label": "43",
+    "numbers": [43],
+    "title": "吸入薬とデバイス",
+    "href": "pharmacology_lab_43_inhaler_devices.html",
+    "stableId": "yakuri.lab.inhaler-devices",
+    "key": "inhaler-devices"
   }
 ];
