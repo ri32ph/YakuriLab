@@ -415,7 +415,8 @@
       "number": 42,
       "title": "気道炎症とICS",
       "question": "気管支拡張と抗炎症は何が違う？",
-      "status": "planned"
+      "status": "ready",
+      "labId": "airway-inflammation"
     },
     {
       "number": 43,

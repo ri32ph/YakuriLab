@@ -384,5 +384,14 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_41_bronchodilators.html",
     "stableId": "yakuri.lab.bronchodilators",
     "key": "bronchodilators"
+  },
+  {
+    "id": "airway-inflammation",
+    "label": "42",
+    "numbers": [42],
+    "title": "気道炎症とICS",
+    "href": "pharmacology_lab_42_airway_inflammation_ics.html",
+    "stableId": "yakuri.lab.airway-inflammation",
+    "key": "airway-inflammation"
   }
 ];
