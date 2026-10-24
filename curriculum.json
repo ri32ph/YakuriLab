@@ -436,7 +436,8 @@
       "number": 45,
       "title": "COPD",
       "question": "気流制限・過膨張・呼吸困難をつなげる。",
-      "status": "planned"
+      "status": "ready",
+      "labId": "copd"
     },
     {
       "number": 46,

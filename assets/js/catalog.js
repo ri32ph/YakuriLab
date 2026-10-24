@@ -411,5 +411,14 @@ window.LAB_CATALOG = [
     "href": "pharmacology_lab_44_asthma.html",
     "stableId": "yakuri.lab.asthma",
     "key": "asthma"
+  },
+  {
+    "id": "copd",
+    "label": "45",
+    "numbers": [45],
+    "title": "COPD",
+    "href": "pharmacology_lab_45_copd.html",
+    "stableId": "yakuri.lab.copd",
+    "key": "copd"
   }
 ];
